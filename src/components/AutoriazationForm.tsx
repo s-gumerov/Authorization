@@ -18,7 +18,7 @@ export const AutoriazationForm: React.FC = () => {
         setUserData(prev => {
             return { ...prev, ...newUserData }
         })
-        console.log(newUserData, userData)
+        // console.log(newUserData, userData)
     }
 
     const formHandler = (e: React.FormEvent<IAutorizationForm>) => {
