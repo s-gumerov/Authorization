@@ -1,4 +1,3 @@
-import { join } from "path";
 import React, { useState } from "react";
 import { IAutorizationForm } from "../Interfaces";
 
@@ -16,15 +15,14 @@ export const AutoriazationForm: React.FC = () => {
     // }
 
     const validate = (email: string, password: string) => {
-        console.log(password.match(/[a-zA-Z0-9_]/g))
         const validPassword = password.match(/[a-zA-Z0-9_]/g)
+
         if (validPassword !== null) {
             setUserData(prev => {
-                return { ...prev, ...{ email: '', password: validPassword.join('') } }
+                return { ...prev, ...{ email: email, password: validPassword.join('') } }
             });
         }
         console.log(userData)
-
     }
 
     const formHandler = (e: React.FormEvent<IAutorizationForm>) => {
