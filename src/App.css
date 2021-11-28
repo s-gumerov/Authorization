@@ -38,6 +38,9 @@
   border-radius: 5px;
   height: 40px;
 }
+.cr{
+  color: red;
+}
 
 @keyframes App-logo-spin {
   from {

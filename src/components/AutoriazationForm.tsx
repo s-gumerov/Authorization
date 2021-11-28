@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IAutorizationForm } from "../Interfaces";
+import { ValidateMessage } from "../components/ValidateMessage";
 
 interface IUserData {
     email: string,
@@ -8,18 +9,24 @@ interface IUserData {
 
 export const AutoriazationForm: React.FC = () => {
     const [userData, setuserData] = useState<IUserData>({ email: 'email', password: 'password' });
+    const [showMessage, setShowMessage] = useState(false);
+    const [validateStatus, setValidateStatus] = useState(false);
 
     const validate = (email: string, password: string) => {
-        const validPassword = password.match(/[a-zA-Z0-9_]/g)
-        if (validPassword !== null) setuserData(
-            prev => {
-                return {
-                    ...prev, ...{
-                        email: email,
-                        password: validPassword.join('')
+        const validPassword = password.match(/[a-zA-Z0-9_]/g);
+        if (validPassword !== null) {
+            setuserData(
+                prev => {
+                    return {
+                        ...prev, ...{
+                            email: email,
+                            password: validPassword.join('')
+                        }
                     }
-                }
-            });
+                });
+            setShowMessage(true);
+            validPassword.length === password.length ? setValidateStatus(true) : setValidateStatus(false);
+        }
     }
 
     const formHandler = (e: React.FormEvent<IAutorizationForm>) => {
@@ -28,12 +35,11 @@ export const AutoriazationForm: React.FC = () => {
             e.currentTarget.elements.userEmail.value,
             e.currentTarget.elements.userPassword.value
         ]
-        validate(email, password)
+        validate(email, password);
     }
 
     useEffect(() => {
         setuserData(userData)
-        console.log(userData)
     }, [userData])
 
     return (
@@ -42,6 +48,7 @@ export const AutoriazationForm: React.FC = () => {
                 <input type="email" name="userEmail" id="userEmail" placeholder="Введите email" />
             </label>
             <label htmlFor="userPassword">Введите пароль
+                {showMessage && <ValidateMessage status={validateStatus} />}
                 <input type="password" name="userPassword" id="userPassword" placeholder="Введите пароль" />
             </label>
             <button type="submit" className="btn-form">
