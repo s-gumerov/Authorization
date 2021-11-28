@@ -6,46 +6,21 @@ interface IUserData {
     password: string | RegExpMatchArray,
 }
 
-
-
 export const AutoriazationForm: React.FC = () => {
-    const [defaultUserData, setDefaultUserData] = useState<IUserData>({ email: 'email', password: 'password' });
-
-    const [userData, setUserData] = useState<IUserData>(defaultUserData);
-
-    // const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // }
-
-
+    const [userData, setuserData] = useState<IUserData>({ email: 'email', password: 'password' });
 
     const validate = (email: string, password: string) => {
         const validPassword = password.match(/[a-zA-Z0-9_]/g)
-        if (validPassword !== null) setDefaultUserData({
-            email: email,
-            password: validPassword.join('')
-        });
+        if (validPassword !== null) setuserData(
+            prev => {
+                return {
+                    ...prev, ...{
+                        email: email,
+                        password: validPassword.join('')
+                    }
+                }
+            });
     }
-
-    // useEffect(() => {
-    //     function handleStatusChange(status) {
-    //         setIsOnline(status.isOnline);
-    //     }
-
-    //     ChatAPI.subscribeToFriendStatus(userData, handleStatusChange);
-    //     return () => {
-    //         ChatAPI.unsubscribeFromFriendStatus(userData, handleStatusChange);
-    //     };
-    // }, [defaultUserData, userData]); // Повторно подписаться, только если userData изменился
-
-
-
-
-    useEffect(() => {
-        const newData = defaultUserData;
-        setUserData(newData)
-        console.log(userData)
-
-    }, [defaultUserData, userData])
 
     const formHandler = (e: React.FormEvent<IAutorizationForm>) => {
         e.preventDefault();
@@ -53,13 +28,13 @@ export const AutoriazationForm: React.FC = () => {
             e.currentTarget.elements.userEmail.value,
             e.currentTarget.elements.userPassword.value
         ]
-        // console.log(email, password)
         validate(email, password)
     }
 
-
-
-
+    useEffect(() => {
+        setuserData(userData)
+        console.log(userData)
+    }, [userData])
 
     return (
         <form className='m2' onSubmit={formHandler}>
