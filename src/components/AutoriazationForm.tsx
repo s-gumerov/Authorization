@@ -4,7 +4,7 @@ import { ValidateMessage } from "../components/ValidateMessage";
 
 interface IUserData {
     email: string,
-    password: string | RegExpMatchArray,
+    password: string | RegExpMatchArray
 }
 
 export const AutoriazationForm: React.FC = () => {
@@ -14,7 +14,8 @@ export const AutoriazationForm: React.FC = () => {
 
     const validate = (email: string, password: string) => {
         const validPassword = password.match(/[a-zA-Z0-9_]/g);
-        if (validPassword !== null) {
+        setShowMessage(true);
+        if (validPassword !== null && validPassword.length > 0) {
             setuserData(
                 prev => {
                     return {
@@ -24,8 +25,9 @@ export const AutoriazationForm: React.FC = () => {
                         }
                     }
                 });
-            setShowMessage(true);
             validPassword.length === password.length ? setValidateStatus(true) : setValidateStatus(false);
+        } else {
+            setValidateStatus(false);
         }
     }
 
