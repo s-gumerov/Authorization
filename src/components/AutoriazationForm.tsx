@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { IAutorizationForm } from "../Interfaces";
+import { IAutorizationForm, IValidateMessage } from "../Interfaces";
 import { ValidateMessage } from "../components/ValidateMessage";
+import { IconPassword } from "./IconPassword";
 
 interface IUserData {
     email: string,
@@ -8,26 +9,56 @@ interface IUserData {
 }
 
 export const AutoriazationForm: React.FC = () => {
-    const [userData, setuserData] = useState<IUserData>({ email: 'email', password: 'password' });
+    const [userData, setUserData] = useState<IUserData>({ email: 'email', password: 'password' });
     const [showMessage, setShowMessage] = useState(false);
-    const [validateStatus, setValidateStatus] = useState(false);
+    const [validateStatus, setValidateStatus] = useState<IValidateMessage>({
+        text: '',
+        textClass: '',
+        password: ''
+    })
 
-    const validate = (email: string, password: string) => {
+    function validate(email: string, password: string) {
         const validPassword = password.match(/[a-zA-Z0-9_]/g);
+        console.log(validPassword?.length)
         setShowMessage(true);
         if (validPassword !== null && validPassword.length > 0) {
-            setuserData(
+            setUserData(
                 prev => {
                     return {
                         ...prev, ...{
                             email: email,
                             password: validPassword.join('')
                         }
-                    }
+                    };
                 });
-            validPassword.length === password.length ? setValidateStatus(true) : setValidateStatus(false);
+
+            validPassword.length === password.length ? setValidateStatus(prev => {
+                return {
+                    ...prev, ...{
+                        text: ' Пароль соответствует требованиям',
+                        textClass: '',
+                        password: password
+                    }
+                }
+            }) : setValidateStatus(prev => {
+                return {
+                    ...prev, ...{
+                        text: ' Пароль не соответствует требованиям',
+                        textClass: 'color-red',
+                        password: password
+                    }
+                }
+            });
         } else {
-            setValidateStatus(false);
+            setValidateStatus(prev => {
+                return {
+                    ...prev, ...{
+                        text: ' Пароль не соответствует требованиям',
+                        textClass: 'color-red',
+                        password: password
+                    }
+                }
+            });
         }
     }
 
@@ -40,8 +71,14 @@ export const AutoriazationForm: React.FC = () => {
         validate(email, password);
     }
 
+    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value);
+        validate('', e.target.value)
+    };
+
+
     useEffect(() => {
-        setuserData(userData)
+        setUserData(userData)
     }, [userData])
 
     return (
@@ -50,8 +87,13 @@ export const AutoriazationForm: React.FC = () => {
                 <input type="email" name="userEmail" id="userEmail" placeholder="Введите email" />
             </label>
             <label htmlFor="userPassword">Введите пароль
-                {showMessage && <ValidateMessage status={validateStatus} />}
-                <input type="password" name="userPassword" id="userPassword" placeholder="Введите пароль" />
+                {showMessage && <ValidateMessage {...validateStatus} />}
+                <div className="div-flex">
+                    <input type="password" name="userPassword" id="userPassword" placeholder="Введите пароль"
+                        onChange={changeHandler}
+                    />
+                    <IconPassword />
+                </div>
             </label>
             <button type="submit" className="btn-form">
                 Зарегистрироваться

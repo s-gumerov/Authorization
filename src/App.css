@@ -38,8 +38,12 @@
   border-radius: 5px;
   height: 40px;
 }
-.cr{
+.color-red{
   color: red;
+}
+
+.div-flex{
+display: flex;
 }
 
 @keyframes App-logo-spin {

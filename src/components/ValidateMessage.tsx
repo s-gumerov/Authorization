@@ -1,16 +1,17 @@
 import React from "react";
+import { IValidateMessage } from "../Interfaces";
 
-interface StatusProps {
-    status: boolean
-}
+export const ValidateMessage: React.FC<IValidateMessage> = (message) => {
 
-export const ValidateMessage: React.FC<StatusProps> = ({ status }) => {
-    console.log(status);
-    const messageTrue = <span> Пароль соответствует требованиям</span>;
-    const messageFalse = <span className="cr"> Пароль может содержать только латинские буквы и цифры</span>;
+    const clickHandler = (e: React.MouseEvent<HTMLSpanElement>) => {
+        console.log(e.target);
+    };
     return (
         <>
-            {status === true ? messageTrue : messageFalse}
+            <span className={message.textClass}
+                onClick={clickHandler}>
+                {message.text}
+            </span>
         </>
     )
 }
