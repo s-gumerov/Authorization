@@ -1,17 +1,11 @@
 import React from "react";
 import { IValidateMessage } from "../Interfaces";
 
-export const ValidateMessage: React.FC<IValidateMessage> = (message) => {
+export const ValidateMessage: React.FC<IValidateMessage> = ({ text, elemClass }) => {
 
-    const clickHandler = (e: React.MouseEvent<HTMLSpanElement>) => {
-        console.log(e.target);
-    };
     return (
-        <>
-            <span className={message.textClass}
-                onClick={clickHandler}>
-                {message.text}
-            </span>
-        </>
+        <span className={elemClass}>
+            {` ${text}`}
+        </span>
     )
 }

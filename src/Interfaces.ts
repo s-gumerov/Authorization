@@ -1,9 +1,3 @@
-export interface ITodo {
-    title: string,
-    id: number,
-    completed: boolean
-}
-
 export interface FormElements extends HTMLFormControlsCollection {
     userEmail: HTMLInputElement,
     userPassword: HTMLInputElement,
@@ -15,6 +9,11 @@ export interface IAutorizationForm extends HTMLFormElement {
 
 export interface IValidateMessage {
     text: string,
-    textClass: string,
+    elemClass: string,
     password: string
+}
+
+export interface IChangePassword {
+    onShowPassword(): void,
+    onHidePassword(): void
 }

@@ -1,60 +1,56 @@
-import React, { useState, useEffect } from "react";
-import { IAutorizationForm, IValidateMessage } from "../Interfaces";
+import React, { useState, useRef } from "react";
+import { IAutorizationForm, IChangePassword, IValidateMessage } from "../Interfaces";
 import { ValidateMessage } from "../components/ValidateMessage";
 import { IconPassword } from "./IconPassword";
 
-interface IUserData {
-    email: string,
-    password: string | RegExpMatchArray
-}
-
 export const AutoriazationForm: React.FC = () => {
-    const [userData, setUserData] = useState<IUserData>({ email: 'email', password: 'password' });
-    const [showMessage, setShowMessage] = useState(false);
-    const [validateStatus, setValidateStatus] = useState<IValidateMessage>({
+
+    const [validateMessage, setValidateMessage] = useState<IValidateMessage>({
         text: '',
-        textClass: '',
-        password: ''
-    })
+        elemClass: '',
+        password: '',
+    });
 
-    function validate(email: string, password: string) {
+    const inputPasswordRef = useRef<HTMLInputElement>(null);
+
+    const validate = (email: string, password: string) => {
+
         const validPassword = password.match(/[a-zA-Z0-9_]/g);
-        console.log(validPassword?.length)
-        setShowMessage(true);
-        if (validPassword !== null && validPassword.length > 0) {
-            setUserData(
-                prev => {
-                    return {
-                        ...prev, ...{
-                            email: email,
-                            password: validPassword.join('')
-                        }
-                    };
-                });
 
-            validPassword.length === password.length ? setValidateStatus(prev => {
+        if (validPassword === null && password.length > 0) {
+            setValidateMessage(prev => {
                 return {
                     ...prev, ...{
-                        text: ' Пароль соответствует требованиям',
-                        textClass: '',
+                        text: 'Пароль не соответствует требованиям',
+                        elemClass: 'color-red',
                         password: password
                     }
                 }
-            }) : setValidateStatus(prev => {
+            })
+        } else if (validPassword !== null && validPassword.length > 0) {
+            validPassword.length === password.length ? setValidateMessage(prev => {
                 return {
                     ...prev, ...{
-                        text: ' Пароль не соответствует требованиям',
-                        textClass: 'color-red',
+                        text: 'Пароль соответствует требованиям',
+                        elemClass: '',
+                        password: password
+                    }
+                }
+            }) : setValidateMessage(prev => {
+                return {
+                    ...prev, ...{
+                        text: 'Пароль не соответствует требованиям',
+                        elemClass: 'color-red',
                         password: password
                     }
                 }
             });
         } else {
-            setValidateStatus(prev => {
+            setValidateMessage(prev => {
                 return {
                     ...prev, ...{
-                        text: ' Пароль не соответствует требованиям',
-                        textClass: 'color-red',
+                        text: '',
+                        elemClass: '',
                         password: password
                     }
                 }
@@ -72,14 +68,21 @@ export const AutoriazationForm: React.FC = () => {
     }
 
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
         validate('', e.target.value)
     };
 
+    const showPassword = () => {
+        if (inputPasswordRef.current?.type === 'password') inputPasswordRef.current.type = 'text';
+    };
 
-    useEffect(() => {
-        setUserData(userData)
-    }, [userData])
+    const hidePassword = () => {
+        if (inputPasswordRef.current?.type === 'text') inputPasswordRef.current.type = 'password';
+    };
+
+    const changePasswordHandler: IChangePassword = {
+        onShowPassword: showPassword,
+        onHidePassword: hidePassword
+    };
 
     return (
         <form className='m2' onSubmit={formHandler}>
@@ -87,12 +90,13 @@ export const AutoriazationForm: React.FC = () => {
                 <input type="email" name="userEmail" id="userEmail" placeholder="Введите email" />
             </label>
             <label htmlFor="userPassword">Введите пароль
-                {showMessage && <ValidateMessage {...validateStatus} />}
+                <ValidateMessage {...validateMessage} />
                 <div className="div-flex">
                     <input type="password" name="userPassword" id="userPassword" placeholder="Введите пароль"
+                        ref={inputPasswordRef}
                         onChange={changeHandler}
                     />
-                    <IconPassword />
+                    <IconPassword {...changePasswordHandler} />
                 </div>
             </label>
             <button type="submit" className="btn-form">
