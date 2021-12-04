@@ -5,8 +5,8 @@ import { IconPassword } from "./IconPassword";
 
 export const SignUpForm: React.FC = () => {
     const [userNameCompleted, setUserNameCompleted] = useState<boolean>(false);
-    const [userEmailComleted, setUserEmailComleted] = useState<boolean>(true);
-    const [userPhoneNumberComleted, setUserPhoneNumberComleted] = useState<boolean>(true);
+    const [userEmailComleted, setUserEmailComleted] = useState<boolean>(false);
+    const [userPhoneNumberComleted, setUserPhoneNumberComleted] = useState<boolean>(false);
     // const [userPasswordComleted, setUserPasswordComleted] = useState<boolean>(true);
     // 
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
@@ -114,6 +114,7 @@ export const SignUpForm: React.FC = () => {
             }
         };
 
+
         if (e.target.name === 'userName') inputNameHandler(e);
         if (e.target.name === 'userEmail') inputEmailHandler(e);
         if (e.target.name === 'userPhoneNumber') inputPhoneNumberHandler(e);
@@ -135,12 +136,20 @@ export const SignUpForm: React.FC = () => {
     };
 
     useEffect(() => {
-        console.log({
-            userNameCompleted: userNameCompleted,
-            userEmailComleted: userEmailComleted,
-            userPhoneNumberComleted: userPhoneNumberComleted,
-            userPasswordComleted: userPasswordComleted,
-        })
+        // console.log({
+        //     userNameCompleted: userNameCompleted,
+        //     userEmailComleted: userEmailComleted,
+        //     userPhoneNumberComleted: userPhoneNumberComleted,
+        //     userPasswordComleted: userPasswordComleted,
+        // })
+
+        userNameCompleted === true &&
+            userEmailComleted === true &&
+            userPhoneNumberComleted === true &&
+            userPasswordComleted.text === "Пароль соответствует требованиям" ?
+            setButtonDisabled(false) :
+            setButtonDisabled(true);
+
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
@@ -160,7 +169,7 @@ export const SignUpForm: React.FC = () => {
 
             <label htmlFor="userPhoneNumber">Номер телефона</label>
             <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
-                required={true} minLength={11} maxLength={11}
+                // required={true} minLength={11} maxLength={11}
                 placeholder="Введите ваш номер телефона"
                 pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
                 onChange={inputChangeHandler}
@@ -170,7 +179,7 @@ export const SignUpForm: React.FC = () => {
             <ValidateMessage {...userPasswordComleted} />
             <div className="div-flex">
                 <input type="password" name="userPassword" id="userPassword"
-                    required={true} minLength={4} maxLength={10}
+                    // required={true} minLength={4} maxLength={10}
                     placeholder="Придумайте ваш пароль"
                     ref={inputPasswordRef}
                     // onChange={changeHandler}

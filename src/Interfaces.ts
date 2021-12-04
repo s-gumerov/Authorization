@@ -7,13 +7,19 @@ export interface IAutorizationForm extends HTMLFormElement {
     readonly elements: FormElements
 }
 
-export interface IValidateMessage {
+export interface IUserPasswordComleted {
     text: string,
     elemClass: string,
-    password: string
 }
 
 export interface IChangePassword {
     onShowPassword(): void,
-    onHidePassword(): void
+    onHidePassword(): void,
+}
+
+export interface IFormInputCompleted {
+    userName: boolean,
+    userEmail: boolean,
+    userPhoneNumber: boolean,
+    userPassword: boolean
 }

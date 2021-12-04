@@ -1,7 +1,7 @@
 import React from "react";
-import { IValidateMessage } from "../Interfaces";
+import { IUserPasswordComleted } from "../Interfaces";
 
-export const ValidateMessage: React.FC<IValidateMessage> = ({ text, elemClass }) => {
+export const ValidateMessage: React.FC<IUserPasswordComleted> = ({ text, elemClass }) => {
 
     return (
         <span className={elemClass}>
