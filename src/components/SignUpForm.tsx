@@ -7,16 +7,11 @@ export const SignUpForm: React.FC = () => {
     const [userNameCompleted, setUserNameCompleted] = useState<boolean>(false);
     const [userEmailComleted, setUserEmailComleted] = useState<boolean>(false);
     const [userPhoneNumberComleted, setUserPhoneNumberComleted] = useState<boolean>(false);
-    // const [userPasswordComleted, setUserPasswordComleted] = useState<boolean>(true);
-    // 
-    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
-
-
-
     const [userPasswordComleted, setUserPasswordComleted] = useState<IUserPasswordComleted>({
         text: '',
         elemClass: '',
     });
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
 
     const inputPasswordRef = useRef<HTMLInputElement>(null);
 
@@ -82,7 +77,7 @@ export const SignUpForm: React.FC = () => {
         };
 
         const inputPhoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const validPhoneNumber = e.target.value.match(/[a-zA-Z_]/g);
+            const validPhoneNumber = e.target.value.match(/[0-9]/g);
             if (validPhoneNumber === null && e.target.value.length > 0) {
                 setUserPhoneNumberComleted(false);
             } else if (validPhoneNumber !== null && validPhoneNumber.length > 0) {
@@ -114,12 +109,10 @@ export const SignUpForm: React.FC = () => {
             }
         };
 
-
         if (e.target.name === 'userName') inputNameHandler(e);
         if (e.target.name === 'userEmail') inputEmailHandler(e);
         if (e.target.name === 'userPhoneNumber') inputPhoneNumberHandler(e);
         if (e.target.name === 'userPassword') inputPhonePasswordHandler(e);
-
     };
 
     const showPassword = () => {
@@ -153,8 +146,7 @@ export const SignUpForm: React.FC = () => {
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
-        <form className='m2' onSubmit={formHandler}>
-
+        <form onSubmit={formHandler}>
             <label htmlFor="userName">Имя</label>
             <input type="text" name="userName" id="userName"
                 placeholder="Введите ваше имя" disabled={false}

@@ -144,21 +144,20 @@ export const SignUpForm: React.FC = () => {
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
-        <form className='m2' onSubmit={formHandler}>
-
-            <label htmlFor="userName">Имя</label>
+        <form onSubmit={formHandler}>
+            {/* <label htmlFor="userName">Имя</label> */}
             <input type="text" name="userName" id="userName"
                 placeholder="Введите ваше имя" disabled={false}
                 onChange={inputChangeHandler}
             />
 
-            <label htmlFor="userEmail">Email</label>
+            {/* <label htmlFor="userEmail">Email</label> */}
             <input type="email" name="userEmail" id="userEmail"
                 placeholder="Введите ваш email"
                 onChange={inputChangeHandler}
             />
 
-            <label htmlFor="userPhoneNumber">Номер телефона</label>
+            {/* <label htmlFor="userPhoneNumber">Номер телефона</label> */}
             <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
                 required={true} minLength={11} maxLength={11}
                 placeholder="Введите ваш номер телефона"
@@ -166,7 +165,7 @@ export const SignUpForm: React.FC = () => {
                 onChange={inputChangeHandler}
             />
 
-            <label htmlFor="userPassword">Пароль</label>
+            {/* <label htmlFor="userPassword">Пароль</label> */}
             <ValidateMessage {...userPasswordComleted} />
             <div className="div-flex">
                 <input type="password" name="userPassword" id="userPassword"

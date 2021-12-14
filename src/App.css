@@ -1,3 +1,58 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("truetype"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("woff"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("woff2"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.container {
+font-family: "Roboto", Arial, Helvetica, sans-serif; 
+text-decoration: none;
+word-spacing: normal;
+line-height: 10px; 
+min-width: 360px;
+}
+
+.container form {
+  padding-left: auto;
+  padding-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+
+/* @media (min-width: 360px) {
+  .container {
+    opacity: 1;
+  }   
+} */
+
+.container h2{
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 360px;
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+form input{
+  outline: 2px solid #9c9c9c;
+}
+
+.container input{
+  
+  outline: 2px solid #9c9c9c;
+}
+
+.container input:focus{
+  outline: 2px solid #9c9c9c;
+  /* outline: #000000;  */
+}
+
 .App {
   text-align: center;
 }
@@ -28,16 +83,16 @@
   color: #61dafb;
 }
 
-.m2 {
-  margin: 2rem;
-  width: 30rem;
-}
 
 .btn-form {
   background-color: #9c9c9c;
   border-radius: 5px;
+  box-shadow: 5px 10px 10px #9c9c9c;
+  font-size: medium;
   height: 40px;
+  letter-spacing: 1px;
 }
+
 .color-red{
   color: red;
 }
@@ -54,3 +109,7 @@ display: flex;
     transform: rotate(360deg);
   }
 }
+
+
+
+

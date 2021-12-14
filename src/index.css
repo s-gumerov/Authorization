@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* animation: myAnimation 5s linear 0.2s infinite alternate-reverse; */
 }
 
 code {
@@ -41,4 +42,18 @@ text-decoration: line-through;
 
 .todo i {
   z-index: 2;
+}
+
+@keyframes myAnimation {
+  from {
+background-color: rosybrown;
+  }
+  50% {
+background-color: royalblue;
+  }
+
+  to {
+background-color: salmon;
+  }
+  
 }
