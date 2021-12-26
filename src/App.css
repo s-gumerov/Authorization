@@ -10,36 +10,93 @@
 
 .container {
 font-family: "Roboto", Arial, Helvetica, sans-serif; 
-text-decoration: none;
-word-spacing: normal;
-line-height: 10px; 
-min-width: 360px;
+display: grid;
+width: inherit;
+height: 100vh;
+grid-template-areas: 
+"head"
+"main"
+"foot";
+grid-template-columns: 100%;
+grid-template-rows:  0.8fr 10fr 1fr;
 }
 
-.container form {
-  padding-left: auto;
+header{
+  grid-area: head;
+  background-color: rgb(49, 49, 49);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-content: stretch;
+}
+
+main {
+  grid-area: main;
+  padding: 30px;
+}
+
+footer{
+  grid-area: foot;
+}
+
+/* custom styles*/
+
+.nav-bar{
+display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-content: center;
+  font-size: 24px;
+}
+
+.nav-bar ul{
+  margin: 0px;
+  min-height: 75px;
+  display: flex; 
+  flex-flow: row wrap;
+  margin-right: 30px;
+  list-style-type: none; 
+}
+
+.nav-bar ul li{
+  padding: 15px;
+  display: flex; 
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.nav-bar a{
+  text-decoration: none;
+  color: white;
+}
+
+.nav-bar a:hover{
+  color: aqua;
+}
+
+.nav-bar ul li:hover{
+ background-color: rgb(131, 131, 131);
+}
+
+/* .container form { */
+  /* display: flex;
+  flex-flow: column wrap; */
+  /* padding-left: auto;
   padding-right: auto;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-}
+  width: 90%; */
+/* } */
 
-
-/* @media (min-width: 360px) {
-  .container {
-    opacity: 1;
-  }   
-} */
-
-.container h2{
+/* .container h2{
   margin-left: auto;
   margin-right: auto;
   min-width: 360px;
   letter-spacing: 2px;
   text-align: left;
-}
+} */
 
-form input{
+/* form input{
   outline: 2px solid #9c9c9c;
 }
 
@@ -50,25 +107,11 @@ form input{
 
 .container input:focus{
   outline: 2px solid #9c9c9c;
-  /* outline: #000000;  */
-}
+} */
 
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -77,39 +120,19 @@ form input{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 
-.btn-form {
+/* .btn-form {
   background-color: #9c9c9c;
   border-radius: 5px;
   box-shadow: 5px 10px 10px #9c9c9c;
   font-size: medium;
   height: 40px;
   letter-spacing: 1px;
-}
-
-.color-red{
-  color: red;
-}
-
-.div-flex{
-display: flex;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
+} */
 

@@ -37,8 +37,6 @@ export const SignUpForm: React.FC = () => {
         });
     };
 
-
-
     const formHandler = (e: React.FormEvent<IAutorizationForm>) => {
         e.preventDefault();
         const [email, password] = [

@@ -5,15 +5,19 @@ import './App.css';
 import { UserAutorization } from './components/UserAutorization';
 
 const App: React.FC = () => {
-  // const [todos, setTodos] = useState<ITodo[]>([]);
-
-
 
   return (
-    <>
-      <NavBar />
-      <UserAutorization />
-    </>
+    <div className="container">
+      <header>
+        <NavBar />
+      </header>
+      <main>
+        <UserAutorization />
+      </main>
+      <footer>
+        footer
+      </footer>
+    </div>
   );
 }
 
