@@ -36,6 +36,7 @@ main {
 }
 
 footer{
+  background-color: peru;
   grid-area: foot;
 }
 
@@ -71,68 +72,106 @@ display: flex;
 }
 
 .nav-bar a:hover{
-  color: aqua;
+   animation-duration: 3s;
+   animation-name: a-hover-animation;
+   animation-iteration-count: infinite;
 }
 
 .nav-bar ul li:hover{
  background-color: rgb(131, 131, 131);
 }
 
-/* .container form { */
-  /* display: flex;
-  flex-flow: column wrap; */
-  /* padding-left: auto;
-  padding-right: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%; */
-/* } */
+@keyframes a-hover-animation {
+  from  { 
+      color: aqua;
+      opacity: 1; 
+  }
+  50%{
+    opacity: 0.5;
+  }
+  to  {
+    color: aqua;
+    opacity: 1;
 
-/* .container h2{
-  margin-left: auto;
-  margin-right: auto;
-  min-width: 360px;
-  letter-spacing: 2px;
-  text-align: left;
-} */
-
-/* form input{
-  outline: 2px solid #9c9c9c;
+  }
 }
 
-.container input{
-  
-  outline: 2px solid #9c9c9c;
-}
-
-.container input:focus{
-  outline: 2px solid #9c9c9c;
-} */
-
-
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.autorisation-container{
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-content: center;
+}
 
-/* .App-link {
-  color: #61dafb;
-} */
+.autorisation-container h2, p{
+  letter-spacing: 2px;
+text-align: center;
+}
 
+.autorisation-form { 
+   display: flex;
+  flex-flow: column wrap; 
+  justify-content: flex-start;
+  align-content: center;
 
-/* .btn-form {
+}
+
+.autorisation-form input{
+  height: 25px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #9c9c9c;
+}
+
+.autorisation-form input:focus{
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #9c9c9c;
+} 
+
+.autorisation-form button {
   background-color: #9c9c9c;
   border-radius: 5px;
   box-shadow: 5px 10px 10px #9c9c9c;
   font-size: medium;
   height: 40px;
   letter-spacing: 1px;
-} */
+}
+
+.autorisation-form button:hover{
+  animation-duration: 0.5s;
+  animation-name: button-hover-animation;
+  animation-iteration-count: 1;
+}
+
+@keyframes button-hover-animation {
+  from  { 
+    border-top: 1px solid white;
+    border-right: none; 
+    border-bottom: none; 
+    border-left: none;   
+  }
+  33.33%{
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: none; 
+    border-left: none; 
+  }
+  66.66%{
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: none; 
+  }
+  to  {
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+  }
+}
 

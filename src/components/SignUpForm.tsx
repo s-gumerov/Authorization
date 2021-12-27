@@ -144,7 +144,7 @@ export const SignUpForm: React.FC = () => {
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
-        <form onSubmit={formHandler}>
+        <form onSubmit={formHandler} className="autorisation-form">
             <label htmlFor="userName">Имя</label>
             <input type="text" name="userName" id="userName"
                 placeholder="Введите ваше имя" disabled={false}

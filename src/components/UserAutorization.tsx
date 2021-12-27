@@ -4,7 +4,7 @@ import { SignUpForm } from './SignUpForm';
 
 export const UserAutorization: React.FC = () => {
     return (
-        <div className="">
+        <div className="autorisation-container">
             <h2>Регистрация</h2>
             <p>
                 Уже есть аккаунт?
