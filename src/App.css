@@ -134,6 +134,7 @@ text-align: center;
 } 
 
 .autorisation-form button {
+  margin-top: 10px;
   background-color: #9c9c9c;
   border-radius: 5px;
   box-shadow: 5px 10px 10px #9c9c9c;
@@ -143,35 +144,43 @@ text-align: center;
 }
 
 .autorisation-form button:hover{
-  animation-duration: 0.5s;
-  animation-name: button-hover-animation;
-  animation-iteration-count: 1;
+  position: relative;
+  bottom: 5px;
+  left: 2px;
+  box-shadow: 5px 20px 20px #9c9c9c;
+  /* animation-duration: 1s;
+  animation-name: button-hover-animation; */
+  /* animation-iteration-count: infinite; */
 }
 
 @keyframes button-hover-animation {
   from  { 
-    border-top: 1px solid white;
+    /* border-top: 1px solid white;
     border-right: none; 
     border-bottom: none; 
-    border-left: none;   
+    border-left: none;    */
+    box-shadow: 5px 5px 5px #9c9c9c;
   }
-  33.33%{
+  /* 33.33%{
     border-top: 1px solid white;
     border-right: 1px solid white;
     border-bottom: none; 
     border-left: none; 
+    box-shadow: 5px 10px 10px #9c9c9c;
   }
   66.66%{
     border-top: 1px solid white;
     border-right: 1px solid white;
     border-bottom: 1px solid white;
     border-left: none; 
-  }
+    box-shadow: 5px 10px 10px #9c9c9c;
+  } */
   to  {
-    border-top: 1px solid white;
+    /* border-top: 1px solid white;
     border-right: 1px solid white;
     border-bottom: 1px solid white;
-    border-left: 1px solid white;
+    border-left: 1px solid white; */
+    box-shadow: 5px 20px 20px #9c9c9c;
   }
 }
 
