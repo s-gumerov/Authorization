@@ -15,7 +15,7 @@ export const IconPassword: React.FC<IChangePassword> = ({ onShowPassword, onHide
     };
 
     return (
-        <i className="material-icons" onClick={clickHandler}>
+        <i className="" onClick={clickHandler}>
             {iconClass}
         </i>
     )

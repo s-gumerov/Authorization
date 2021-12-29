@@ -144,30 +144,32 @@ export const SignUpForm: React.FC = () => {
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
-        <form onSubmit={formHandler} className="autorisation-form">
-            <label htmlFor="userName">Имя</label>
-            <input type="text" name="userName" id="userName"
-                placeholder="Введите ваше имя" disabled={false}
-                onChange={inputChangeHandler}
-            />
+        <section>
 
-            <label htmlFor="userEmail">Email</label>
-            <input type="email" name="userEmail" id="userEmail"
-                placeholder="Введите ваш email"
-                onChange={inputChangeHandler}
-            />
 
-            <label htmlFor="userPhoneNumber">Номер телефона</label>
-            <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
-                // required={true} minLength={11} maxLength={11}
-                placeholder="Введите ваш номер телефона"
-                pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
-                onChange={inputChangeHandler}
-            />
+            <form onSubmit={formHandler} className="autorisation-form">
+                <label htmlFor="userName">Имя</label>
+                <input type="text" name="userName" id="userName"
+                    placeholder="Введите ваше имя" disabled={false}
+                    onChange={inputChangeHandler}
+                />
 
-            <label htmlFor="userPassword">Пароль</label>
-            <ValidateMessage {...userPasswordComleted} />
-            <div className="div-flex">
+                <label htmlFor="userEmail">Email</label>
+                <input type="email" name="userEmail" id="userEmail"
+                    placeholder="Введите ваш email"
+                    onChange={inputChangeHandler}
+                />
+
+                <label htmlFor="userPhoneNumber">Номер телефона</label>
+                <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
+                    // required={true} minLength={11} maxLength={11}
+                    placeholder="Введите ваш номер телефона"
+                    pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
+                    onChange={inputChangeHandler}
+                />
+
+                <label htmlFor="userPassword">Пароль</label>
+
                 <input type="password" name="userPassword" id="userPassword"
                     // required={true} minLength={4} maxLength={10}
                     placeholder="Придумайте ваш пароль"
@@ -176,11 +178,15 @@ export const SignUpForm: React.FC = () => {
                     onChange={inputChangeHandler}
                 />
                 <IconPassword {...changePasswordHandler} />
-            </div>
 
-            <button type="submit" className="btn-form" disabled={buttonDisabled === true ? true : false}>
-                Зарегистрироваться
-            </button>
-        </form>
+                <div className="message-wrapper">
+                    <ValidateMessage {...userPasswordComleted} />
+                </div>
+                <button type="submit" className="btn-form" disabled={buttonDisabled === true ? true : false}>
+                    Зарегистрироваться
+                </button>
+            </form>
+
+        </section>
     )
 }

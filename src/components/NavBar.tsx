@@ -3,17 +3,10 @@ import React from "react";
 export const NavBar: React.FC = () => {
     return (
         <nav className="nav-bar">
-            <ul>
-                <li>
-                    <a href="/">Главная</a>
-                </li>
-                <li>
-                    <a href="/">Категории</a>
-                </li>
-                <li>
-                    <a href="/">Информация</a>
-                </li>
-            </ul>
+            <a href="/">Главная</a>
+            <a href="/cat">Категории</a>
+            <a href="/">Информация</a>
+
         </nav >
     )
 }
