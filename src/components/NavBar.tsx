@@ -6,7 +6,6 @@ export const NavBar: React.FC = () => {
             <a href="/">Главная</a>
             <a href="/cat">Категории</a>
             <a href="/">Информация</a>
-
         </nav >
     )
 }

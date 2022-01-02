@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { IAutorizationForm, IChangePassword, IUserPasswordComleted } from "../Interfaces";
+import { IAutorizationForm, IChangePassword, IUserPasswordComleted, IPrompt } from "../Interfaces";
 import { ValidateMessage } from "./ValidateMessage";
 import { IconPassword } from "./IconPassword";
+import { FormPrompt } from "./FormPrompt";
 
 export const SignUpForm: React.FC = () => {
     const [userNameCompleted, setUserNameCompleted] = useState<boolean>(false);
@@ -12,6 +13,11 @@ export const SignUpForm: React.FC = () => {
         elemClass: '',
     });
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+    const [formPrompt, setFormPrompt] = useState<IPrompt>({
+        id: '',
+        hidden: true,
+        message: ''
+    });
 
     const inputPasswordRef = useRef<HTMLInputElement>(null);
 
@@ -45,10 +51,10 @@ export const SignUpForm: React.FC = () => {
         ]
     };
 
-
     const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 
         const inputNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+
             const validName = e.target.value.match(/[a-zA-Z_]/g);
             if (validName === null && e.target.value.length > 0) {
                 setUserNameCompleted(false);
@@ -62,6 +68,7 @@ export const SignUpForm: React.FC = () => {
         };
 
         const inputEmailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+
             const validEmail = e.target.value.match(/[a-zA-Z_]/g);
             if (validEmail === null && e.target.value.length > 0) {
                 setUserEmailComleted(false);
@@ -75,6 +82,7 @@ export const SignUpForm: React.FC = () => {
         };
 
         const inputPhoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+
             const validPhoneNumber = e.target.value.match(/[0-9]/g);
             if (validPhoneNumber === null && e.target.value.length > 0) {
                 setUserPhoneNumberComleted(false);
@@ -148,26 +156,50 @@ export const SignUpForm: React.FC = () => {
 
 
             <form onSubmit={formHandler} className="autorisation-form">
+
+                {formPrompt.id === "userName" && <FormPrompt {...formPrompt} />}
                 <label htmlFor="userName">Имя</label>
                 <input type="text" name="userName" id="userName"
                     placeholder="Введите ваше имя" disabled={false}
                     onChange={inputChangeHandler}
+                    onClick={() =>
+                        setFormPrompt({
+                            id: 'userName',
+                            hidden: false,
+                            message: 'Цифры и символы кроме пробела и дефиса'
+                        })
+                    }
                 />
 
+                {formPrompt.id === "userEmail" && <FormPrompt {...formPrompt} />}
                 <label htmlFor="userEmail">Email</label>
                 <input type="email" name="userEmail" id="userEmail"
                     placeholder="Введите ваш email"
                     onChange={inputChangeHandler}
+                    onClick={() => setFormPrompt({
+                        id: 'userEmail',
+                        hidden: false,
+                        message: 'Вводить только email'
+                    })}
                 />
 
+                {formPrompt.id === "userPhoneNumber" && <FormPrompt {...formPrompt} />}
                 <label htmlFor="userPhoneNumber">Номер телефона</label>
                 <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
                     // required={true} minLength={11} maxLength={11}
                     placeholder="Введите ваш номер телефона"
                     pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
                     onChange={inputChangeHandler}
+                    onClick={() =>
+                        setFormPrompt({
+                            id: 'userPhoneNumber',
+                            hidden: false,
+                            message: 'Вводить только номер'
+                        })
+                    }
                 />
 
+                {formPrompt.id === "userPassword" && <FormPrompt {...formPrompt} />}
                 <label htmlFor="userPassword">Пароль</label>
 
                 <input type="password" name="userPassword" id="userPassword"
@@ -176,6 +208,11 @@ export const SignUpForm: React.FC = () => {
                     ref={inputPasswordRef}
                     // onChange={changeHandler}
                     onChange={inputChangeHandler}
+                    onClick={() => setFormPrompt({
+                        id: 'userPassword',
+                        hidden: false,
+                        message: 'Вводить только пароль'
+                    })}
                 />
                 <IconPassword {...changePasswordHandler} />
 

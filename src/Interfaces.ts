@@ -23,3 +23,9 @@ export interface IFormInputCompleted {
     userPhoneNumber: boolean,
     userPassword: boolean
 }
+
+export interface IPrompt {
+    id: string;
+    hidden: boolean,
+    message: string
+}

@@ -72,25 +72,12 @@ display: flex;
 }
 
 .nav-bar a:hover{
-   animation-duration: 3s;
-   animation-name: a-hover-animation;
-   animation-iteration-count: infinite;
+ transition: linear 0.3s;
+   opacity: 0.5;
 }
 
 .nav-bar ul li:hover{
  background-color: rgb(131, 131, 131);
-}
-
-@keyframes a-hover-animation {
-  from  { 
-      opacity: 1; 
-  }
-  50%{
-    opacity: 0.5;
-  }
-  to  {
-    opacity: 1;
-  }
 }
 
 .autorisation-container{
@@ -107,11 +94,10 @@ text-align: center;
 }
 
 .autorisation-form { 
-   display: flex;
+  display: flex;
   flex-flow: column wrap; 
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-content: center;
-
 }
 
 .autorisation-form input{
@@ -120,6 +106,18 @@ text-align: center;
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #9c9c9c;
+}
+
+.form-prompt{
+  width: 250px;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: smaller;
+  color: aqua;
+}
+
+.hidden{
+  visibility: hidden;  
 }
 
 .message-wrapper{

@@ -167,7 +167,7 @@ export const SignUpForm: React.FC = () => {
 
             {/* <label htmlFor="userPassword">Пароль</label> */}
             <ValidateMessage {...userPasswordComleted} />
-            <div className="div-flex">
+            <div className="">
                 <input type="password" name="userPassword" id="userPassword"
                     required={true} minLength={4} maxLength={10}
                     placeholder="Придумайте ваш пароль"
