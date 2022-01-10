@@ -1,8 +1,8 @@
 import React from 'react';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { NavBar } from './components/NavBar';
+import { NavBar } from './containers/NavBar';
 import './App.css';
-import { UserAutorization } from './components/UserAutorization';
+import { UserAutorization } from './containers/UserAutorization';
 
 const App: React.FC = () => {
 

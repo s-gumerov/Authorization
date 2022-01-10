@@ -9,16 +9,16 @@
 }
 
 .container {
-font-family: "Roboto", Arial, Helvetica, sans-serif; 
-display: grid;
-width: inherit;
-height: 100vh;
-grid-template-areas: 
-"head"
-"main"
-"foot";
-grid-template-columns: 100%;
-grid-template-rows:  0.8fr 10fr 1fr;
+  font-family: "Roboto", Arial, Helvetica, sans-serif; 
+  display: grid;
+  width: inherit;
+  height: 100vh;
+  grid-template-areas: 
+  "head"
+  "main"
+  "foot";
+  grid-template-columns: 100%;
+  grid-template-rows:  0.8fr 10fr 1fr;
 }
 
 header{
@@ -44,40 +44,11 @@ footer{
 /* custom styles*/
 
 .nav-bar{
-display: flex;
+  display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
   align-content: center;
   font-size: 24px;
-}
-
-.nav-bar a{
-  margin: 0px; 
-  min-height: 75px;
-  padding: 0px 20px 0px 20px;
-  list-style-type: none; 
-}
-
-.nav-bar a:hover{
-  background-color: rgb(131, 131, 131);
-}
-
-.nav-bar a{
-  text-decoration: none;
-  color: white;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-bar a:hover{
- transition: linear 0.3s;
-   opacity: 0.5;
-}
-
-.nav-bar ul li:hover{
- background-color: rgb(131, 131, 131);
 }
 
 .autorisation-container{

@@ -29,3 +29,10 @@ export interface IPrompt {
     hidden: boolean,
     message: string
 }
+
+
+export interface ILinkProps {
+    className: string,
+    to: string,
+    linkText: string,
+}
