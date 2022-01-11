@@ -1,0 +1,129 @@
+.autorisation-container{
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content:center;
+    align-content: center;
+  }
+  
+  .autorisation-container h2, p{
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  
+  .autorisation-form { 
+    display: flex;
+    flex-flow: column wrap; 
+    /* justify-content: flex-start; */
+    align-content: center;
+  }
+  
+  
+  .autorisation-form input{
+    height: 25px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #9c9c9c;
+  }
+  
+  .show-password{
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .form-prompt{
+    width: 250px;
+    display: flex;
+    flex-flow: row wrap;
+    font-size: smaller;
+    color: aqua;
+  }
+  
+  .hidden{
+    visibility: hidden;  
+  }
+  
+  .message-wrapper{
+    width: 250px;
+    height: 25px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center;
+    font-size: smaller;
+  }
+  
+  .span-message{
+    text-align: center;
+    color: springgreen;}
+  
+  .color-red{
+    color: red;
+  }
+  
+  .autorisation-form button {
+    margin-top: 10px;
+    background-color: #9c9c9c;
+    border-radius: 5px;
+    box-shadow: 5px 10px 10px #9c9c9c;
+    font-size: medium;
+    height: 40px;
+    letter-spacing: 1px;
+  }
+  
+  .autorisation-form button:hover{
+    position: relative;
+    bottom: 1px;
+    left: 1px;
+    box-shadow: 5px 15px 15px #9c9c9c;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .autorisation-form button:focus{
+    position: static;
+    margin-top: 10px;
+    background-color: darkgray;
+    color: aliceblue;
+    box-shadow: 5px 10px 10px #9c9c9c;
+    font-size: large;
+  }
+  
+  .unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+  }
+
+.icon-checked {
+    content: url("../../../../../../style/icons/check_box_black_24dp.svg");
+    border: 8px solid transparent;
+    border-radius: 50%;
+}
+
+.icon-checked:hover {
+    border: 8px solid rgb(241, 241, 241);;
+    border-radius: 50%;
+}
+
+
+.icon-unchecked {
+    content: url("../../../../../../style/icons/check_box_outline_blank_black_24dp.svg");
+    border: 8px solid transparent;
+    border-radius: 50%;
+}
+
+.icon-unchecked:hover {
+    border: 8px solid rgb(241, 241, 241);
+    border-radius: 50%;
+    transition: 200ms;
+}

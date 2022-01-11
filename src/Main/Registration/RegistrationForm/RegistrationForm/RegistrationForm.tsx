@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { IAutorizationForm, IChangePassword, IUserPasswordComleted, IPrompt } from "../Interfaces";
-import { ValidateMessage } from "./ValidateMessage";
-import { IconPassword } from "./IconPassword";
-import { FormPrompt } from "./FormPrompt";
+import { IAutorizationForm, IChangePassword, IUserPasswordComleted, IPrompt } from "../../../../Interfaces";
+import { ValidateMessage } from "./RegistrationFormComponents/ValidateMessage";
+import { IconShowPassword } from "./RegistrationFormComponents/IconShowPassword";
+import { FormPrompt } from "./RegistrationFormComponents/FormPrompt";
 
-export const SignUpForm: React.FC = () => {
+export const RegistrationForm: React.FC = () => {
     const [userNameCompleted, setUserNameCompleted] = useState<boolean>(false);
     const [userEmailComleted, setUserEmailComleted] = useState<boolean>(false);
     const [userPhoneNumberComleted, setUserPhoneNumberComleted] = useState<boolean>(false);
@@ -214,7 +214,14 @@ export const SignUpForm: React.FC = () => {
                         message: 'Вводить только пароль'
                     })}
                 />
-                <IconPassword {...changePasswordHandler} />
+
+                <div className="show-password">
+                    <IconShowPassword {...changePasswordHandler} />
+                    Показать пароль
+                </div>
+
+
+
 
                 <div className="message-wrapper">
                     <ValidateMessage {...userPasswordComleted} />

@@ -1,9 +1,9 @@
 import React from 'react';
-import './HeaderLink.css';
-import './FormLink.css';
+import './style/HeaderLink.css';
+import './style/FormLink.css';
 import { ILinkProps } from '../../Interfaces';
 
-export const LinkComponents: React.FC<ILinkProps> = ({ className, to, linkText }) => {
+export const LinkComponent: React.FC<ILinkProps> = ({ className, to, linkText }) => {
     return (
         <a href={to} className={className}>
             {linkText}

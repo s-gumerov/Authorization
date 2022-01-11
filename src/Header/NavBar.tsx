@@ -1,5 +1,5 @@
 import React from "react";
-import { LinkComponents } from "../components/LinkComponents/LinkComponents"
+import { LinkComponent } from "../Components/LinkComponents/LinkComponent"
 
 export const NavBar: React.FC = () => {
 
@@ -23,9 +23,9 @@ export const NavBar: React.FC = () => {
 
     return (
         <nav className="nav-bar">
-            <LinkComponents {...mainPage} />
-            <LinkComponents {...categoryPage} />
-            <LinkComponents {...informationPage} />
+            <LinkComponent {...mainPage} />
+            <LinkComponent {...categoryPage} />
+            <LinkComponent {...informationPage} />
         </nav >
     )
 }

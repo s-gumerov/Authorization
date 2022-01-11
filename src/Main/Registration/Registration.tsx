@@ -1,10 +1,10 @@
 import React from "react";
-import { SignUpForm } from '../components/SignUpForm';
-import { LinkComponents } from "../components/LinkComponents/LinkComponents"
+import { RegistrationForm } from './RegistrationForm/RegistrationForm/RegistrationForm';
+import { LinkComponent } from "../../Components/LinkComponents/LinkComponent"
 
 // import { AutoriazationForm } from "./AutoriazationForm";
 
-export const UserAutorization: React.FC = () => {
+export const Registration: React.FC = () => {
 
     const formLink = {
         linkText: 'Войти',
@@ -17,9 +17,9 @@ export const UserAutorization: React.FC = () => {
             <h2>Регистрация</h2>
             <p>
                 Уже есть аккаунт?
-                <LinkComponents {...formLink} />
+                <LinkComponent {...formLink} />
             </p>
-            <SignUpForm />
+            <RegistrationForm />
         </div>
     )
 }

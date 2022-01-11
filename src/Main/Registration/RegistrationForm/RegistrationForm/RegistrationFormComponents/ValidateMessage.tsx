@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserPasswordComleted } from "../Interfaces";
+import { IUserPasswordComleted } from "../../../../../Interfaces";
 
 export const ValidateMessage: React.FC<IUserPasswordComleted> = ({ text, elemClass }) => {
 

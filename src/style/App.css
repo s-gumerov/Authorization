@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("truetype"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("woff"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("woff2"),
+       url("/src/style/fonts/Roboto/Roboto-Regular.ttf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.container {
+  font-family: "Roboto", Arial, Helvetica, sans-serif; 
+  display: grid;
+  width: inherit;
+  height: 100vh;
+  grid-template-areas: 
+  "head"
+  "main"
+  "foot";
+  grid-template-columns: 100%;
+  grid-template-rows:  0.8fr 10fr 1fr;
+}
+
+header{
+  grid-area: head;
+  background-color: rgb(49, 49, 49);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-content: stretch;
+}
+
+main {
+  grid-area: main;
+  padding: 30px;
+}
+
+footer{
+  background-color: dimgrey;
+  grid-area: foot;
+  text-align: center;
+  color: white;
+}
+
+/* custom styles*/
+
+.nav-bar{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-content: center;
+  font-size: 24px;
+}
