@@ -14,12 +14,10 @@
   .autorisation-form { 
     display: flex;
     flex-flow: column wrap; 
-    /* justify-content: flex-start; */
     align-content: center;
   }
   
-  
-  .autorisation-form input{
+    .autorisation-form input{
     height: 25px;
     border-top: none;
     border-left: none;
@@ -28,23 +26,26 @@
   }
   
   .show-password{
+    /* margin: 0px 10px 0px 0px; */
     height: 40px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    gap: 15px;
     align-items: center;
   }
   
   .form-prompt{
-    width: 250px;
     display: flex;
-    flex-flow: row wrap;
-    font-size: smaller;
-    color: aqua;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-size: x-small;
+    color: darkgrey;
+    width: 250px;
+    height: 25px;
   }
-  
-  .hidden{
+
+ 
+  .form-prompt_hidden{
     visibility: hidden;  
   }
   
@@ -64,6 +65,7 @@
   
   .color-red{
     color: red;
+    font-size: x-small;
   }
   
   .autorisation-form button {
@@ -85,15 +87,6 @@
     cursor: pointer;
   }
   
-  .autorisation-form button:focus{
-    position: static;
-    margin-top: 10px;
-    background-color: darkgray;
-    color: aliceblue;
-    box-shadow: 5px 10px 10px #9c9c9c;
-    font-size: large;
-  }
-  
   .unselectable {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -105,9 +98,12 @@
   }
 
 .icon-checked {
+    width: 25px;
     content: url("../../../../../../style/icons/check_box_black_24dp.svg");
     border: 8px solid transparent;
     border-radius: 50%;
+    position: relative;
+    right: 8px;
 }
 
 .icon-checked:hover {
@@ -115,15 +111,16 @@
     border-radius: 50%;
 }
 
-
 .icon-unchecked {
+    width: 25px;
     content: url("../../../../../../style/icons/check_box_outline_blank_black_24dp.svg");
     border: 8px solid transparent;
     border-radius: 50%;
+    position: relative;
+    right: 8px;
 }
 
 .icon-unchecked:hover {
     border: 8px solid rgb(241, 241, 241);
     border-radius: 50%;
-    transition: 200ms;
 }

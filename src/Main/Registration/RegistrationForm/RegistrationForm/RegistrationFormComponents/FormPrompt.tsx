@@ -4,8 +4,8 @@ import { IPrompt } from "../../../../../Interfaces"
 export const FormPrompt: React.FC<IPrompt> = ({ hidden, message }) => {
 
     return (
-        < div className={`form-prompt ${hidden ? 'hidden' : ''}`}  >
+        <i className={` ${hidden ? 'form-prompt_hidden' : ''}`}>
             {message}
-        </div >
+        </i>
     )
 }

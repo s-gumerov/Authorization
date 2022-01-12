@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import './style/style.css'
+import './style/style.css';
 import { IChangePassword } from "../../../../../Interfaces";
 
-export const IconShowPassword: React.FC<IChangePassword> = ({ onShowPassword, onHidePassword }) => {
-    const [icon, setIcon] = useState('icon-unchecked')
+export const ShowPassword: React.FC<IChangePassword> = ({ onShowPassword, onHidePassword }) => {
+    const [icon, setIcon] = useState('icon-unchecked');
 
 
     const clickHandler = (e: React.MouseEvent<HTMLElement>) => {
@@ -15,14 +15,11 @@ export const IconShowPassword: React.FC<IChangePassword> = ({ onShowPassword, on
             onHidePassword();
         }
     };
-    console.log(icon)
     return (
-        <>
-            {/* <i className={icon.class} onClick={clickHandler}>
-            </i> */}
-            <span className={icon} onClick={clickHandler}>
-            </span>
-        </>
-
+        <div onClick={clickHandler} className="show-password">
+            <div className={icon} >
+            </div>
+            Показать пароль
+        </div>
     )
 }

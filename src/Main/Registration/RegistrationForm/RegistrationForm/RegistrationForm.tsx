@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IAutorizationForm, IChangePassword, IUserPasswordComleted, IPrompt } from "../../../../Interfaces";
 import { ValidateMessage } from "./RegistrationFormComponents/ValidateMessage";
-import { IconShowPassword } from "./RegistrationFormComponents/IconShowPassword";
+import { ShowPassword } from "./RegistrationFormComponents/ShowPassword";
 import { FormPrompt } from "./RegistrationFormComponents/FormPrompt";
 
 export const RegistrationForm: React.FC = () => {
@@ -25,7 +25,7 @@ export const RegistrationForm: React.FC = () => {
         setUserPasswordComleted(prev => {
             return {
                 ...prev, ...{
-                    text: 'Пароль соответствует требованиям',
+                    text: ' ',
                     elemClass: '',
                 }
             }
@@ -36,7 +36,7 @@ export const RegistrationForm: React.FC = () => {
         setUserPasswordComleted(prev => {
             return {
                 ...prev, ...{
-                    text: 'Пароль не соответствует требованиям',
+                    text: 'Пароль должен состоять из цифр и латинских букв верхнего и нижнего регистра, минимум 4 символа',
                     elemClass: 'color-red',
                 }
             }
@@ -55,7 +55,7 @@ export const RegistrationForm: React.FC = () => {
 
         const inputNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-            const validName = e.target.value.match(/[a-zA-Z_]/g);
+            const validName = e.target.value.match(/[a-zA-Zа-яА-Я- ]/g);
             if (validName === null && e.target.value.length > 0) {
                 setUserNameCompleted(false);
             } else if (validName !== null && validName.length > 0) {
@@ -69,10 +69,10 @@ export const RegistrationForm: React.FC = () => {
 
         const inputEmailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-            const validEmail = e.target.value.match(/[a-zA-Z_]/g);
+            const validEmail = e.target.value.match(/[a-zA-Z0-9@.]/g);
             if (validEmail === null && e.target.value.length > 0) {
                 setUserEmailComleted(false);
-            } else if (validEmail !== null && validEmail.length > 0) {
+            } else if (validEmail !== null && validEmail.length > 8) {
                 validEmail.length === e.target.value.length ?
                     setUserEmailComleted(true) :
                     setUserEmailComleted(false);
@@ -83,10 +83,10 @@ export const RegistrationForm: React.FC = () => {
 
         const inputPhoneNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-            const validPhoneNumber = e.target.value.match(/[0-9]/g);
+            const validPhoneNumber = e.target.value.match(/[0-9()-+]/g);
             if (validPhoneNumber === null && e.target.value.length > 0) {
                 setUserPhoneNumberComleted(false);
-            } else if (validPhoneNumber !== null && validPhoneNumber.length > 0) {
+            } else if (validPhoneNumber !== null && validPhoneNumber.length > 10) {
                 validPhoneNumber.length === e.target.value.length ?
                     setUserPhoneNumberComleted(true) :
                     setUserPhoneNumberComleted(false);
@@ -97,11 +97,11 @@ export const RegistrationForm: React.FC = () => {
 
         const inputPhonePasswordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-            const validPassword = e.target.value.match(/[a-zA-Z0-9_]/g);
+            const validPassword = e.target.value.match(/[a-zA-Z0-9]/g);
 
             if (validPassword === null && e.target.value.length > 0) {
                 unsuccessfulPasswordValidate();
-            } else if (validPassword !== null && validPassword.length > 0) {
+            } else if (validPassword !== null && validPassword.length > 3) {
                 validPassword.length === e.target.value.length ? successfulPasswordValidate() : unsuccessfulPasswordValidate();
             } else {
                 setUserPasswordComleted(prev => {
@@ -145,7 +145,7 @@ export const RegistrationForm: React.FC = () => {
         userNameCompleted === true &&
             userEmailComleted === true &&
             userPhoneNumberComleted === true &&
-            userPasswordComleted.text === "Пароль соответствует требованиям" ?
+            userPasswordComleted.text === " " ?
             setButtonDisabled(false) :
             setButtonDisabled(true);
 
@@ -156,8 +156,9 @@ export const RegistrationForm: React.FC = () => {
 
 
             <form onSubmit={formHandler} className="autorisation-form">
-
-                {formPrompt.id === "userName" && <FormPrompt {...formPrompt} />}
+                <div className="form-prompt">
+                    {formPrompt.id === "userName" && <FormPrompt {...formPrompt} />}
+                </div>
                 <label htmlFor="userName">Имя</label>
                 <input type="text" name="userName" id="userName"
                     placeholder="Введите ваше имя" disabled={false}
@@ -166,12 +167,13 @@ export const RegistrationForm: React.FC = () => {
                         setFormPrompt({
                             id: 'userName',
                             hidden: false,
-                            message: 'Цифры и символы кроме пробела и дефиса'
+                            message: 'Не может содержать цифры и символы кроме пробела и дефиса'
                         })
                     }
                 />
-
-                {formPrompt.id === "userEmail" && <FormPrompt {...formPrompt} />}
+                <div className="form-prompt">
+                    {formPrompt.id === "userEmail" && <FormPrompt {...formPrompt} />}
+                </div>
                 <label htmlFor="userEmail">Email</label>
                 <input type="email" name="userEmail" id="userEmail"
                     placeholder="Введите ваш email"
@@ -179,31 +181,34 @@ export const RegistrationForm: React.FC = () => {
                     onClick={() => setFormPrompt({
                         id: 'userEmail',
                         hidden: false,
-                        message: 'Вводить только email'
+                        message: 'Может содержать email'
                     })}
                 />
-
-                {formPrompt.id === "userPhoneNumber" && <FormPrompt {...formPrompt} />}
+                <div className="form-prompt">
+                    {formPrompt.id === "userPhoneNumber" && <FormPrompt {...formPrompt} />}
+                </div>
                 <label htmlFor="userPhoneNumber">Номер телефона</label>
                 <input type="tel" id="userPhoneNumber" name="userPhoneNumber"
                     // required={true} minLength={11} maxLength={11}
                     placeholder="Введите ваш номер телефона"
-                    pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
+                    // pattern="[8-9]{3}-[0-9]{3}-[0-9]{4}"
                     onChange={inputChangeHandler}
                     onClick={() =>
                         setFormPrompt({
                             id: 'userPhoneNumber',
                             hidden: false,
-                            message: 'Вводить только номер'
+                            message: 'Может содержать 11 цифр, круглые скобки, дефис и знак плюс'
                         })
                     }
                 />
-
-                {formPrompt.id === "userPassword" && <FormPrompt {...formPrompt} />}
+                <div className="form-prompt">
+                    {formPrompt.id === "userPassword" && <FormPrompt {...formPrompt} />}
+                </div>
                 <label htmlFor="userPassword">Пароль</label>
 
                 <input type="password" name="userPassword" id="userPassword"
                     // required={true} minLength={4} maxLength={10}
+
                     placeholder="Придумайте ваш пароль"
                     ref={inputPasswordRef}
                     // onChange={changeHandler}
@@ -211,18 +216,10 @@ export const RegistrationForm: React.FC = () => {
                     onClick={() => setFormPrompt({
                         id: 'userPassword',
                         hidden: false,
-                        message: 'Вводить только пароль'
+                        message: 'Может содержать цифры и латинские буквы верхнего и нижнего регистра, минимум 4 символа'
                     })}
                 />
-
-                <div className="show-password">
-                    <IconShowPassword {...changePasswordHandler} />
-                    Показать пароль
-                </div>
-
-
-
-
+                <ShowPassword {...changePasswordHandler} />
                 <div className="message-wrapper">
                     <ValidateMessage {...userPasswordComleted} />
                 </div>
