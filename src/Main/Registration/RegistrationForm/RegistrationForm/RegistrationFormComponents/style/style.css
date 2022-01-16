@@ -24,9 +24,10 @@
     border-right: none;
     border-bottom: 1px solid #9c9c9c;
   }
-  
+
   .show-password{
     /* margin: 0px 10px 0px 0px; */
+    /* background-color: rgb(241, 241, 241); */
     height: 40px;
     display: flex;
     flex-flow: row nowrap;
@@ -45,8 +46,8 @@
   }
 
  
-  .form-prompt_hidden{
-    visibility: hidden;  
+  .form-prompt_error{
+    color: red; 
   }
   
   .message-wrapper{
@@ -68,7 +69,7 @@
     font-size: x-small;
   }
   
-  .autorisation-form button {
+  .autorisation-form__btn {
     margin-top: 10px;
     background-color: #9c9c9c;
     border-radius: 5px;
@@ -78,7 +79,7 @@
     letter-spacing: 1px;
   }
   
-  .autorisation-form button:hover{
+  .autorisation-form_active-btn:hover{
     position: relative;
     bottom: 1px;
     left: 1px;
@@ -98,6 +99,7 @@
   }
 
 .icon-checked {
+    background-color: transparent;
     width: 25px;
     content: url("../../../../../../style/icons/check_box_black_24dp.svg");
     border: 8px solid transparent;
@@ -107,11 +109,13 @@
 }
 
 .icon-checked:hover {
+    background-color: rgb(241, 241, 241);
     border: 8px solid rgb(241, 241, 241);;
     border-radius: 50%;
 }
 
 .icon-unchecked {
+    background-color: transparent;
     width: 25px;
     content: url("../../../../../../style/icons/check_box_outline_blank_black_24dp.svg");
     border: 8px solid transparent;
@@ -121,6 +125,7 @@
 }
 
 .icon-unchecked:hover {
+    background-color: rgb(241, 241, 241);
     border: 8px solid rgb(241, 241, 241);
     border-radius: 50%;
 }

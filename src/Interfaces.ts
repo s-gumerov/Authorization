@@ -26,8 +26,9 @@ export interface IFormInputCompleted {
 
 export interface IPrompt {
     id: string;
-    hidden: boolean,
-    message: string
+    hidden?: boolean,
+    message: string,
+    error: boolean
 }
 
 
