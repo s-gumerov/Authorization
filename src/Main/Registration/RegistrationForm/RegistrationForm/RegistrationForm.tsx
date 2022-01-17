@@ -33,87 +33,94 @@ export const RegistrationForm: React.FC = () => {
     const inputNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const name = e.target.value.match(/[a-zA-Zа-яА-Я- ]/g);
 
-        const errorMessage = (error: boolean) => {
+        const errorMessage = (error: boolean, completed: boolean) => {
             setPromptProps({
                 id: 'userName',
                 message: 'Не может содержать цифры и символы кроме пробела и дефиса',
-                error: !error
+                error: error
             });
-            completedHandler('userName', error);
+            completedHandler('userName', completed);
         };
 
+        let error = true;
+        let completed = true;
+
         if (name === null && e.target.value.length > 0) {
-            errorMessage(false);
+            errorMessage(error, !completed);
         } else if (name !== null && name.length > 0) {
-            name.length === e.target.value.length ? errorMessage(true) : errorMessage(false);
+            name.length === e.target.value.length ? errorMessage(!error, completed) : errorMessage(error, !completed);
         } else {
-            errorMessage(false);
+            e.target.value.length < 1 ? errorMessage(!error, !completed) : errorMessage(error, !completed);
         }
     };
 
     const inputEmailHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const email = e.target.value.match(/[a-zA-Z0-9@.]/g);
-        const errorMessage = (error: boolean) => {
+        const email = e.target.value.match(/[a-zA-Z0-9.@]/g);
+        const errorMessage = (error: boolean, completed: boolean) => {
             setPromptProps({
                 id: 'userEmail',
                 message: 'Может содержать email',
-                error: !error
+                error: error
             });
-            completedHandler('userEmail', error);
+            completedHandler('userEmail', completed);
         };
 
+        let error = true;
+        let completed = true;
+
         if (email === null && e.target.value.length > 0) {
-            errorMessage(false);
-            console.log(1)
+            errorMessage(error, !completed);
         } else if (email !== null && email.length > 0) {
-            console.log(2)
-            email.length === e.target.value.length ? errorMessage(true) : errorMessage(false);
+            email.length === e.target.value.length ? errorMessage(!error, completed) : errorMessage(error, !completed);
         } else {
-            console.log(3)
-            e.target.value.length < 1 ? errorMessage(true) : errorMessage(false);
+            e.target.value.length < 1 ? errorMessage(!error, !completed) : errorMessage(error, !completed);
         }
     };
 
     const inputPhoneHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const phone = e.target.value.match(/[0-9()-+]/g);
-        const errorMessage = (error: boolean) => {
+        const errorMessage = (error: boolean, completed: boolean) => {
             setPromptProps({
                 id: 'userPhone',
                 message: 'Не может содержать цифры и символы кроме пробела и дефиса',
-                error: !error
+                error: error
             });
-            completedHandler('userPhone', error);
+            completedHandler('userPhone', completed);
         };
 
+        let error = true;
+        let completed = true;
+
         if (phone === null && e.target.value.length > 0) {
-            errorMessage(false);
+            errorMessage(error, !completed);
         } else if (phone !== null && phone.length > 0) {
-            phone.length === e.target.value.length ? errorMessage(true) : errorMessage(false);
+            phone.length === e.target.value.length ? errorMessage(!error, completed) : errorMessage(error, !completed);
         } else {
-            errorMessage(false);
+            e.target.value.length < 1 ? errorMessage(!error, !completed) : errorMessage(error, !completed);
         }
     };
 
     const inputPasswordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const password = e.target.value.match(/[a-zA-Z0-9]/g);
-        const errorMessage = (error: boolean) => {
+        const errorMessage = (error: boolean, completed: boolean) => {
             setPromptProps({
                 id: 'userPassword',
                 message: 'Может содержать цифры и латинские буквы верхнего и нижнего регистра, минимум 4 символа',
-                error: !error
+                error: error
             });
-            completedHandler('userPassword', error);
+            completedHandler('userPassword', completed);
         };
 
+        let error = true;
+        let completed = true;
+
         if (password === null && e.target.value.length > 0) {
-            errorMessage(false);
+            errorMessage(error, !completed);
         } else if (password !== null && password.length > 0) {
-            password.length === e.target.value.length ? errorMessage(true) : errorMessage(false);
-
+            password.length === e.target.value.length ? errorMessage(!error, completed) : errorMessage(error, !completed);
         } else {
-            errorMessage(false);
+            e.target.value.length < 1 ? errorMessage(!error, !completed) : errorMessage(error, !completed);
         }
-
     };
 
     const showPassword = () => {
