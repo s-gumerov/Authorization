@@ -37,3 +37,8 @@ export interface ILinkProps {
     to: string,
     linkText: string,
 }
+
+export interface ICheckValue {
+    message: string,
+    checkedText: string
+}
