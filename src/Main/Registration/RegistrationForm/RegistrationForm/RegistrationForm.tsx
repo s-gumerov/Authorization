@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IChangePassword, IPrompt } from "../../../../Interfaces";
-import { ValidateMessage } from "./RegistrationFormComponents/ValidateMessage";
 import { ShowPassword } from "./RegistrationFormComponents/ShowPassword";
 import { FormPrompt } from "./RegistrationFormComponents/FormPrompt";
 
@@ -106,73 +105,68 @@ export const RegistrationForm: React.FC = () => {
     }, [userNameCompleted, userEmailComleted, userPhoneNumberComleted, userPasswordComleted])
 
     return (
-        <section>
-            <form
-                onSubmit={formHandler}
-                className="autorisation-form">
-                {promptProps.id === "userName" && <FormPrompt {...promptProps} />}
-                <label htmlFor="userName">Имя</label>
-                <input type="text" name="userName" id="userName"
-                    placeholder="Введите ваше имя" disabled={false}
-                    onChange={inputHandler}
-                    onClick={() => setPromptProps({
-                        id: 'userName',
-                        message: 'Не может содержать цифры и символы кроме пробела и дефиса',
+        <form
+            onSubmit={formHandler}
+            className="autorisation-form">
+            {promptProps.id === "userName" && <FormPrompt {...promptProps} />}
+            <label htmlFor="userName">Имя</label>
+            <input type="text" name="userName" id="userName"
+                placeholder="Введите ваше имя" disabled={false}
+                onChange={inputHandler}
+                onClick={() => setPromptProps({
+                    id: 'userName',
+                    message: 'Не может содержать цифры и символы кроме пробела и дефиса',
+                    error: false
+                })
+                }
+            />
+
+            {promptProps.id === "userEmail" && <FormPrompt {...promptProps} />}
+            <label htmlFor="userEmail">Email</label>
+            <input type="email" name="userEmail" id="userEmail"
+                placeholder="Введите ваш email"
+                onChange={inputHandler}
+                onClick={() => setPromptProps({
+                    id: 'userEmail',
+                    message: 'Может содержать email',
+                    error: false
+                })}
+            />
+
+            {promptProps.id === "userPhone" && <FormPrompt {...promptProps} />}
+            <label htmlFor="userPhone">Номер телефона</label>
+            <input type="tel" id="userPhone" name="userPhone"
+                required={true} minLength={11} maxLength={16}
+                placeholder="Введите ваш номер телефона"
+                onChange={inputHandler}
+                onClick={() =>
+                    setPromptProps({
+                        id: 'userPhone',
+                        message: 'Может содержать 11 цифр, круглые скобки, дефис и знак плюс',
                         error: false
                     })
-                    }
-                />
+                }
+            />
 
-                {promptProps.id === "userEmail" && <FormPrompt {...promptProps} />}
-                <label htmlFor="userEmail">Email</label>
-                <input type="email" name="userEmail" id="userEmail"
-                    placeholder="Введите ваш email"
-                    onChange={inputHandler}
-                    onClick={() => setPromptProps({
-                        id: 'userEmail',
-                        message: 'Может содержать email',
-                        error: false
-                    })}
-                />
+            {promptProps.id === "userPassword" && <FormPrompt {...promptProps} />}
+            <label htmlFor="userPassword">Пароль</label>
 
-                {promptProps.id === "userPhone" && <FormPrompt {...promptProps} />}
-                <label htmlFor="userPhone">Номер телефона</label>
-                <input type="tel" id="userPhone" name="userPhone"
-                    required={true} minLength={11} maxLength={16}
-                    placeholder="Введите ваш номер телефона"
-                    onChange={inputHandler}
-                    onClick={() =>
-                        setPromptProps({
-                            id: 'userPhone',
-                            message: 'Может содержать 11 цифр, круглые скобки, дефис и знак плюс',
-                            error: false
-                        })
-                    }
-                />
-
-                {promptProps.id === "userPassword" && <FormPrompt {...promptProps} />}
-                <label htmlFor="userPassword">Пароль</label>
-
-                <input type="password" name="userPassword" id="userPassword"
-                    placeholder="Придумайте ваш пароль"
-                    ref={toggleInputTypeRef}
-                    onChange={inputHandler}
-                    onClick={() => setPromptProps({
-                        id: 'userPassword',
-                        message: 'Может содержать цифры и латинские буквы верхнего и нижнего регистра, минимум 4 символа',
-                        error: false
-                    })}
-                />
-                <ShowPassword {...changePasswordHandler} />
-                <div className="message-wrapper">
-                    <ValidateMessage {...userPasswordComleted} />
-                </div>
-                <button type="submit"
-                    disabled={buttonDisabled ? true : false}
-                    className={`autorisation-form__btn ${!buttonDisabled && 'autorisation-form_active-btn'}`}>
-                    Зарегистрироваться
-                </button>
-            </form>
-        </section>
+            <input type="password" name="userPassword" id="userPassword"
+                placeholder="Придумайте ваш пароль"
+                ref={toggleInputTypeRef}
+                onChange={inputHandler}
+                onClick={() => setPromptProps({
+                    id: 'userPassword',
+                    message: 'Может содержать цифры и латинские буквы верхнего и нижнего регистра, минимум 4 символа',
+                    error: false
+                })}
+            />
+            <ShowPassword {...changePasswordHandler} />
+            <button type="submit"
+                disabled={buttonDisabled ? true : false}
+                className={`autorisation-form__btn ${!buttonDisabled && 'autorisation-form_active-btn'}`}>
+                Зарегистрироваться
+            </button>
+        </form>
     )
 }
