@@ -26,8 +26,6 @@
   }
 
   .show-password{
-    /* margin: 0px 10px 0px 0px; */
-    /* background-color: rgb(241, 241, 241); */
     height: 40px;
     display: flex;
     flex-flow: row nowrap;

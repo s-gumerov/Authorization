@@ -65,6 +65,10 @@ export const RegistrationForm: React.FC = () => {
         let completed = true;
 
         const errorMessage = (error: boolean, completed: boolean) => {
+            // if (error === true) {
+            //     let newValue = e.target.value.slice(0, -1);
+            //     e.target.value = newValue;
+            // }
             setPromptProps({
                 id: e.target.id,
                 message: message,
@@ -81,7 +85,6 @@ export const RegistrationForm: React.FC = () => {
             e.target.value.length < 1 ? errorMessage(!error, !completed) : errorMessage(error, !completed);
         };
     };
-
 
     const showPassword = () => {
         if (toggleInputTypeRef.current?.type === 'password') toggleInputTypeRef.current.type = 'text';
@@ -108,20 +111,22 @@ export const RegistrationForm: React.FC = () => {
         <form
             onSubmit={formHandler}
             className="autorisation-form">
-            {promptProps.id === "userName" && <FormPrompt {...promptProps} />}
+            <div className="form-prompt">
+                {promptProps.id === "userName" && <FormPrompt {...promptProps} />}
+            </div>
             <label htmlFor="userName">Имя</label>
             <input type="text" name="userName" id="userName"
-                placeholder="Введите ваше имя" disabled={false}
+                placeholder="Введите ваше имя"
                 onChange={inputHandler}
                 onClick={() => setPromptProps({
                     id: 'userName',
                     message: 'Не может содержать цифры и символы кроме пробела и дефиса',
                     error: false
-                })
-                }
+                })}
             />
-
-            {promptProps.id === "userEmail" && <FormPrompt {...promptProps} />}
+            <div className="form-prompt">
+                {promptProps.id === "userEmail" && <FormPrompt {...promptProps} />}
+            </div>
             <label htmlFor="userEmail">Email</label>
             <input type="email" name="userEmail" id="userEmail"
                 placeholder="Введите ваш email"
@@ -132,8 +137,9 @@ export const RegistrationForm: React.FC = () => {
                     error: false
                 })}
             />
-
-            {promptProps.id === "userPhone" && <FormPrompt {...promptProps} />}
+            <div className="form-prompt">
+                {promptProps.id === "userPhone" && <FormPrompt {...promptProps} />}
+            </div>
             <label htmlFor="userPhone">Номер телефона</label>
             <input type="tel" id="userPhone" name="userPhone"
                 required={true} minLength={11} maxLength={16}
@@ -147,10 +153,10 @@ export const RegistrationForm: React.FC = () => {
                     })
                 }
             />
-
-            {promptProps.id === "userPassword" && <FormPrompt {...promptProps} />}
+            <div className="form-prompt">
+                {promptProps.id === "userPassword" && <FormPrompt {...promptProps} />}
+            </div>
             <label htmlFor="userPassword">Пароль</label>
-
             <input type="password" name="userPassword" id="userPassword"
                 placeholder="Придумайте ваш пароль"
                 ref={toggleInputTypeRef}
