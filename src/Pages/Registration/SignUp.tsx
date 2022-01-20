@@ -4,11 +4,11 @@ import { LinkComponent } from "../../Components/LinkComponents/LinkComponent"
 
 // import { AutoriazationForm } from "./AutoriazationForm";
 
-export const Registration: React.FC = () => {
+export const SignUp: React.FC = () => {
 
     const formLink = {
-        linkText: 'Войти',
-        to: "/sign",
+        text: 'Войти',
+        path: "/sign-in",
         className: "form-link"
     }
 

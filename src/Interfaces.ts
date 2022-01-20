@@ -34,8 +34,8 @@ export interface IPrompt {
 
 export interface ILinkProps {
     className: string,
-    to: string,
-    linkText: string,
+    path: string,
+    text: string,
 }
 
 export interface ICheckValue {

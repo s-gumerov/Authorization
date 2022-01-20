@@ -4,20 +4,20 @@ import { LinkComponent } from "../Components/LinkComponents/LinkComponent"
 export const NavBar: React.FC = () => {
 
     const mainPage = {
-        linkText: 'Главная',
-        to: "/main",
+        text: 'Главная',
+        path: "/main",
         className: "header-link"
     }
 
     const categoryPage = {
-        linkText: 'Категории',
-        to: "/cat",
+        text: 'Категории',
+        path: "/cat",
         className: "header-link"
     }
 
-    const informationPage = {
-        linkText: 'Информация',
-        to: "/info",
+    const signUp = {
+        text: 'Зарегистрироваться',
+        path: "/sign-up",
         className: "header-link"
     }
 
@@ -25,7 +25,7 @@ export const NavBar: React.FC = () => {
         <nav className="nav-bar">
             <LinkComponent {...mainPage} />
             <LinkComponent {...categoryPage} />
-            <LinkComponent {...informationPage} />
+            <LinkComponent {...signUp} />
         </nav >
     )
 }

@@ -65,10 +65,6 @@ export const RegistrationForm: React.FC = () => {
         let completed = true;
 
         const errorMessage = (error: boolean, completed: boolean) => {
-            if (error === true) {
-                let newValue = e.target.value.slice(0, -1);
-                e.target.value = newValue;
-            }
             setPromptProps({
                 id: e.target.id,
                 message: message,

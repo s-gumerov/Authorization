@@ -1,12 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './style/HeaderLink.css';
 import './style/FormLink.css';
 import { ILinkProps } from '../../Interfaces';
 
-export const LinkComponent: React.FC<ILinkProps> = ({ className, to, linkText }) => {
+export const LinkComponent: React.FC<ILinkProps> = ({ className, path, text }) => {
     return (
-        <a href={to} className={className}>
-            {linkText}
-        </a>
+        <NavLink to={path} className={className}>
+            {text}
+        </NavLink>
     )
 }

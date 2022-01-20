@@ -1,9 +1,14 @@
 import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  Routes,
+  Route
+}
+  from 'react-router-dom';
 import { NavBar } from './Header/NavBar';
 import { Footer } from './Footer/Footer';
 import './style/App.css';
-import { Registration } from './Main/Registration/Registration';
+import { SignUp } from './Pages/Registration/SignUp';
+import { SignIn } from './Pages/SignIn/SignIn';
 
 const App: React.FC = () => {
 
@@ -13,7 +18,10 @@ const App: React.FC = () => {
         <NavBar />
       </header>
       <main>
-        <Registration />
+        <Routes>
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
       </main>
       <Footer />
     </div>
