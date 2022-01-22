@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Autoriazation/static/css/main.620e3fb0.chunk.css",
-    "main.js": "/Autoriazation/static/js/main.4501e029.chunk.js",
-    "main.js.map": "/Autoriazation/static/js/main.4501e029.chunk.js.map",
-    "runtime-main.js": "/Autoriazation/static/js/runtime-main.22c7287d.js",
-    "runtime-main.js.map": "/Autoriazation/static/js/runtime-main.22c7287d.js.map",
-    "static/js/2.956b4487.chunk.js": "/Autoriazation/static/js/2.956b4487.chunk.js",
-    "static/js/2.956b4487.chunk.js.map": "/Autoriazation/static/js/2.956b4487.chunk.js.map",
-    "static/js/3.19d766d0.chunk.js": "/Autoriazation/static/js/3.19d766d0.chunk.js",
-    "static/js/3.19d766d0.chunk.js.map": "/Autoriazation/static/js/3.19d766d0.chunk.js.map",
-    "index.html": "/Autoriazation/index.html",
-    "static/css/main.620e3fb0.chunk.css.map": "/Autoriazation/static/css/main.620e3fb0.chunk.css.map",
-    "static/js/2.956b4487.chunk.js.LICENSE.txt": "/Autoriazation/static/js/2.956b4487.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/Autoriazation/static/media/Roboto-Regular.a8d6ac03.ttf",
-    "static/media/style.css": "/Autoriazation/static/media/check_box_outline_blank_black_24dp.e1bfe6c8.svg"
+    "main.css": "/Authorization/static/css/main.fa4b2fbf.chunk.css",
+    "main.js": "/Authorization/static/js/main.4501e029.chunk.js",
+    "main.js.map": "/Authorization/static/js/main.4501e029.chunk.js.map",
+    "runtime-main.js": "/Authorization/static/js/runtime-main.40783767.js",
+    "runtime-main.js.map": "/Authorization/static/js/runtime-main.40783767.js.map",
+    "static/js/2.956b4487.chunk.js": "/Authorization/static/js/2.956b4487.chunk.js",
+    "static/js/2.956b4487.chunk.js.map": "/Authorization/static/js/2.956b4487.chunk.js.map",
+    "static/js/3.19d766d0.chunk.js": "/Authorization/static/js/3.19d766d0.chunk.js",
+    "static/js/3.19d766d0.chunk.js.map": "/Authorization/static/js/3.19d766d0.chunk.js.map",
+    "index.html": "/Authorization/index.html",
+    "static/css/main.fa4b2fbf.chunk.css.map": "/Authorization/static/css/main.fa4b2fbf.chunk.css.map",
+    "static/js/2.956b4487.chunk.js.LICENSE.txt": "/Authorization/static/js/2.956b4487.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/Authorization/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/style.css": "/Authorization/static/media/check_box_outline_blank_black_24dp.e1bfe6c8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.22c7287d.js",
+    "static/js/runtime-main.40783767.js",
     "static/js/2.956b4487.chunk.js",
-    "static/css/main.620e3fb0.chunk.css",
+    "static/css/main.fa4b2fbf.chunk.css",
     "static/js/main.4501e029.chunk.js"
   ]
 }
