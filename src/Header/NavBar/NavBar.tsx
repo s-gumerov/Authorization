@@ -1,31 +1,28 @@
 import React from "react";
-import { LinkComponent } from "../Components/LinkComponents/LinkComponent"
-
+import { NavBarPC } from "./NavBarPC/NavBarPC";
+import { IArrayLinkProps, ILinkProps } from "../.././Interfaces"
 export const NavBar: React.FC = () => {
-
-    const mainPage = {
+    const mainPage: ILinkProps = {
         text: 'Главная',
         path: "/main",
         className: "header-link"
     }
 
-    const categoryPage = {
+    const categoryPage: ILinkProps = {
         text: 'Категории',
         path: "/cat",
         className: "header-link"
     }
 
-    const signUp = {
+    const signUp: ILinkProps = {
         text: 'Зарегистрироваться',
         path: "/sign-up",
         className: "header-link"
     }
 
+    const navProps: IArrayLinkProps = { navProps: [mainPage, categoryPage, signUp] }
+
     return (
-        <nav className="nav-bar">
-            <LinkComponent {...mainPage} />
-            <LinkComponent {...categoryPage} />
-            <LinkComponent {...signUp} />
-        </nav >
+        <NavBarPC {...navProps} />
     )
-}
+};

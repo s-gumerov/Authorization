@@ -38,6 +38,10 @@ export interface ILinkProps {
     text: string,
 }
 
+export interface IArrayLinkProps {
+    navProps: ILinkProps[]
+}
+
 export interface ICheckValue {
     message: string,
     checkedText: string

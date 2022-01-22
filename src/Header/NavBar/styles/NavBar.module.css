@@ -1,0 +1,11 @@
+.nav_PC{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-content: center;
+    font-size: 24px;
+  }
+
+  .nav_mobile {
+    color: aqua;
+}
