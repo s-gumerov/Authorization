@@ -4,7 +4,7 @@ import { IArrayLinkProps, ILinkProps } from "../.././Interfaces"
 export const NavBar: React.FC = () => {
     const mainPage: ILinkProps = {
         text: 'Главная',
-        path: "/main",
+        path: "/",
         className: "header-link"
     }
 
