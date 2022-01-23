@@ -3,10 +3,7 @@ import { NavBarPC } from "./NavBarPC/NavBarPC";
 import { NavBarMobile } from "./NavBarMobile/NavBarMobile";
 import { IArrayLinkProps, ILinkProps } from "../.././Interfaces"
 export const NavBar: React.FC = () => {
-    // const [desktop, setDesktop] = useState<boolean>(false);
-    // const width = window.screen.width;
-    // width < 767 ? setDesktop(false) : setDesktop(true)
-    // console.log(width)
+
     const mainPage: ILinkProps = {
         text: 'Главная',
         path: "/",

@@ -1,8 +1,38 @@
-.nav_container {
+.menu_wrapper {
+    background-color: transparent;
+    border: 8px solid transparent;
+    border-radius: 50%;
     margin: 10px 20px 10px 0px;
     display: inline-block;
     cursor: pointer;
   }
+
+  .menu_wrapper:hover {
+   background-color: rgb(107, 107, 107);
+   border: 8px solid rgb(107, 107, 107);
+   border-radius: 50%;
+  }
+.drawer_off{
+  background-color: gray;
+  transition: 500ms;
+  border: 2px solid gray;
+  position: absolute;
+  right: 100%;
+  width: 75%;
+  height: 100vh;
+  color: aqua;
+}
+.drawer_on{
+  background-color: gray;
+  transition: 500ms;
+  border: 2px solid gray;
+  position: absolute;
+  right: 25%;
+  width: 75%;
+  height: 100vh;
+  color: aqua;
+}
+
   
   .bar1, .bar2, .bar3 {
     width: 35px;
