@@ -21,23 +21,61 @@
   grid-template-rows:  0.8fr 10fr 1fr;
 }
 
-header{
+header {
   grid-area: head;
   background-color: rgb(49, 49, 49);
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
   align-content: stretch;
+  z-index: 2;
 }
 
 main {
   grid-area: main;
   padding: 30px;
+  
 }
 
-footer{
+footer {
   background-color: dimgrey;
   grid-area: foot;
   text-align: center;
   color: white;
 }
+
+
+/* @media screen and (max-width: 767px) {
+  .container {
+    font-family: "Roboto", Arial, Helvetica, sans-serif; 
+    display: grid;
+    width: inherit;
+    height: 100vh;
+    grid-template-areas: 
+    "main"
+    "foot";
+    grid-template-columns: 100%;
+    grid-template-rows:  10fr 1fr;
+  }
+
+  header{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+  }
+   
+  main {
+    grid-area: main;
+    padding: 30px;
+  }
+  
+  footer{
+    background-color: dimgrey;
+    grid-area: foot;
+    text-align: center;
+    color: white;
+  }
+} */

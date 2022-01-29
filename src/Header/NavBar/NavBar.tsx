@@ -1,32 +1,32 @@
 import React from "react";
 import { NavBarPC } from "./NavBarPC/NavBarPC";
 import { NavBarMobile } from "./NavBarMobile/NavBarMobile";
-import { IArrayLinkProps, ILinkProps } from "../.././Interfaces"
+import { ILinkProps, IArrayLinkProps } from "../.././Interfaces"
+
 export const NavBar: React.FC = () => {
+    const styleNavBar = 'header-link';
 
     const mainPage: ILinkProps = {
         text: 'Главная',
         path: "/",
-        className: "header-link"
+        className: styleNavBar
     }
 
     const categoryPage: ILinkProps = {
         text: 'Категории',
         path: "/cat",
-        className: "header-link"
+        className: styleNavBar
     }
 
     const signUp: ILinkProps = {
         text: 'Зарегистрироваться',
         path: "/sign-up",
-        className: "header-link"
+        className: styleNavBar
     }
 
     const navProps: IArrayLinkProps = { navProps: [mainPage, categoryPage, signUp] }
 
     return (
-        <>
-            {window.screen.width < 767 ? <NavBarMobile /> : <NavBarPC {...navProps} />}
-        </>
+        window.screen.width < 767 ? <NavBarMobile {...navProps} /> : <NavBarPC {...navProps} />
     )
 };

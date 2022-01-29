@@ -5,8 +5,10 @@ import './style/FormLink.css';
 import { ILinkProps } from '../../Interfaces';
 
 export const LinkComponent: React.FC<ILinkProps> = ({ className, path, text }) => {
+    const clickHanlker = () => true;
+
     return (
-        <NavLink to={path} className={className}>
+        <NavLink to={path} className={className} onClick={clickHanlker}>
             {text}
         </NavLink>
     )

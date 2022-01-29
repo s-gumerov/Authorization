@@ -1,55 +1,84 @@
-.menu_wrapper {
-    background-color: transparent;
-    border: 8px solid transparent;
-    border-radius: 50%;
-    margin: 10px 20px 10px 0px;
-    display: inline-block;
-    cursor: pointer;
+.nav-container__menu {
+  margin: 10px 20px 10px 0px;
+  display: inline-block;
+  cursor: pointer;
   }
 
-  .menu_wrapper:hover {
-   background-color: rgb(107, 107, 107);
-   border: 8px solid rgb(107, 107, 107);
-   border-radius: 50%;
+  .nav-container_lock{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0, 0, 0.2);
+    z-index: -1;
   }
-.drawer_off{
-  background-color: gray;
+
+.drawer-on{
+  top: 0px;
+  background-color: white;
   transition: 500ms;
-  border: 2px solid gray;
-  position: absolute;
-  right: 100%;
-  width: 75%;
-  height: 100vh;
-  color: aqua;
-}
-.drawer_on{
-  background-color: gray;
-  transition: 500ms;
-  border: 2px solid gray;
-  position: absolute;
+  position: fixed; 
   right: 25%;
   width: 75%;
-  height: 100vh;
-  color: aqua;
+  height:100%;
+  z-index: 1;
+  border-right: 2.5px solid black;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  animation: hidden_effect 0.75s ease-in-out;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  padding: 100px 0px 0px 0px;
+  gap: 20px;
 }
 
-  
-  .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: white;
-    margin: 6px 0;
-    transition: 0.4s;
+.drawer-off{
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 100px 0px 0px 0px;
+  gap: 20px;
+  top: 0px;
+  transition: 500ms;
+  position: fixed;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid black;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+@keyframes hidden_effect {
+
+ from {
+    right: 100%;
+  }
+  50% {
+     right: 0%;
+     }   
+  to {
+  right: 25%;
+  } 
+ }
+
+.bar1, .bar2, .bar3 {
+   width: 35px;
+   height: 5px;
+   background-color: white;
+   margin: 6px 0;
+   transition: 0.4s;
   }
   
   .change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
+   -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+   transform: rotate(-45deg) translate(-9px, 6px);
   }
   
   .change .bar2 {opacity: 0;}
   
   .change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
+   -webkit-transform: rotate(45deg) translate(-8px, -8px);
+   transform: rotate(45deg) translate(-8px, -8px);
   }
