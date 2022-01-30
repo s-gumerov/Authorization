@@ -1,6 +1,7 @@
 import React, { useState, WheelEvent } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { NavBar } from './Header/NavBar/NavBar';
+import { Test } from './Pages/Test/Test';
 import { Footer } from './Footer/Footer';
 import './style/App.css';
 import { Main } from './Pages/Main/Main';
@@ -51,6 +52,7 @@ export const App: React.FC<INavBarMobileProps> = () => {
           <Route path="/cat" element={<Category />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </main>
       <Footer />

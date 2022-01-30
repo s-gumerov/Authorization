@@ -24,7 +24,13 @@ export const NavBar: React.FC = () => {
         className: styleNavBar
     }
 
-    const navProps: IArrayLinkProps = { navProps: [mainPage, categoryPage, signUp] }
+    const test: ILinkProps = {
+        text: 'Test',
+        path: "/test",
+        className: styleNavBar
+    }
+
+    const navProps: IArrayLinkProps = { navProps: [mainPage, categoryPage, signUp, test] }
 
     return (
         window.screen.width < 767 ? <NavBarMobile {...navProps} /> : <NavBarPC {...navProps} />

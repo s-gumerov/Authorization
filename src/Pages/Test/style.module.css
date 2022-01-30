@@ -1,0 +1,25 @@
+.test{
+    padding: 50px 50px 50px 50px;
+    margin: 0px 0px 0px 0px;
+}
+
+.test_input:invalid {
+    background-color: #ebebeb;
+  }
+  
+  /* form:invalid {
+    border: 5px solid #ffdddd;
+  } */
+  
+  .test_input:valid {
+    background-color: #ddffdd;
+  }
+  
+  /* form:valid {
+    border: 5px solid #ddffdd;
+  } */
+  
+  .test_input:required {
+    border-color: #dd8383;
+    border-width: 3px;
+  }
