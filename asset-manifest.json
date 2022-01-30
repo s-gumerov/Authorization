@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Authorization/static/css/main.427cc752.chunk.css",
-    "main.js": "/Authorization/static/js/main.abd968e2.chunk.js",
-    "main.js.map": "/Authorization/static/js/main.abd968e2.chunk.js.map",
-    "runtime-main.js": "/Authorization/static/js/runtime-main.7d2e2c85.js",
-    "runtime-main.js.map": "/Authorization/static/js/runtime-main.7d2e2c85.js.map",
-    "static/js/2.787ceba9.chunk.js": "/Authorization/static/js/2.787ceba9.chunk.js",
-    "static/js/2.787ceba9.chunk.js.map": "/Authorization/static/js/2.787ceba9.chunk.js.map",
-    "static/js/3.9afd5683.chunk.js": "/Authorization/static/js/3.9afd5683.chunk.js",
-    "static/js/3.9afd5683.chunk.js.map": "/Authorization/static/js/3.9afd5683.chunk.js.map",
+    "main.css": "/Authorization/static/css/main.d0054bb9.chunk.css",
+    "main.js": "/Authorization/static/js/main.9271eb39.chunk.js",
+    "main.js.map": "/Authorization/static/js/main.9271eb39.chunk.js.map",
+    "runtime-main.js": "/Authorization/static/js/runtime-main.73983399.js",
+    "runtime-main.js.map": "/Authorization/static/js/runtime-main.73983399.js.map",
+    "static/js/2.da000d29.chunk.js": "/Authorization/static/js/2.da000d29.chunk.js",
+    "static/js/2.da000d29.chunk.js.map": "/Authorization/static/js/2.da000d29.chunk.js.map",
+    "static/js/3.c9055751.chunk.js": "/Authorization/static/js/3.c9055751.chunk.js",
+    "static/js/3.c9055751.chunk.js.map": "/Authorization/static/js/3.c9055751.chunk.js.map",
     "index.html": "/Authorization/index.html",
-    "static/css/main.427cc752.chunk.css.map": "/Authorization/static/css/main.427cc752.chunk.css.map",
-    "static/js/2.787ceba9.chunk.js.LICENSE.txt": "/Authorization/static/js/2.787ceba9.chunk.js.LICENSE.txt",
+    "static/css/main.d0054bb9.chunk.css.map": "/Authorization/static/css/main.d0054bb9.chunk.css.map",
+    "static/js/2.da000d29.chunk.js.LICENSE.txt": "/Authorization/static/js/2.da000d29.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Authorization/static/media/Roboto-Regular.a8d6ac03.ttf",
     "static/media/style.css": "/Authorization/static/media/check_box_outline_blank_black_24dp.e1bfe6c8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7d2e2c85.js",
-    "static/js/2.787ceba9.chunk.js",
-    "static/css/main.427cc752.chunk.css",
-    "static/js/main.abd968e2.chunk.js"
+    "static/js/runtime-main.73983399.js",
+    "static/js/2.da000d29.chunk.js",
+    "static/css/main.d0054bb9.chunk.css",
+    "static/js/main.9271eb39.chunk.js"
   ]
 }
