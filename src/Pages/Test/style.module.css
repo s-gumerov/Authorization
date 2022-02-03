@@ -4,7 +4,7 @@
 }
 
 .test_input:invalid {
-    background-color: #ebebeb;
+    background-color: #df2828;
   }
   
   /* form:invalid {
@@ -12,7 +12,7 @@
   } */
   
   .test_input:valid {
-    background-color: #ddffdd;
+    background-color: #46b846;
   }
   
   /* form:valid {

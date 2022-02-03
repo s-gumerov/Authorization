@@ -58,3 +58,29 @@ export interface INavBarMobileProps {
     touchStartHandler?: (e: React.TouchEvent<HTMLDivElement>) => void;
     touchEndHandler?: (e: React.TouchEvent<HTMLDivElement>) => void
 }
+
+export interface IRange extends Range {
+    moveStart: (character: string, position: number) => void,
+    moveEnd: (character: string, position: number) => void,
+    select(): string
+}
+
+export interface IHTMLInputElement extends HTMLInputElement {
+    createTextRange?(): IRange;
+
+}
+
+export interface IInputProps {
+    id: string,
+    type: string,
+    name: string,
+    className: string,
+    mask: string,
+    title: string,
+    pattern: string,
+    labelText: string
+}
+
+export interface IInputArrayProps {
+    inputs: IInputProps[]
+}
