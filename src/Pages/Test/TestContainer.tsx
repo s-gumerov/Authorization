@@ -9,7 +9,7 @@ export const TestContainer: React.FC = () => {
         type: "tel",
         name: "tel",
         className: '',
-        mask: "+7 (___) ___ ____",
+        mask: "+7 ___ ___ ____",
         title: `titleValue`,
         pattern: "\+7 \s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[ ]{0,1}\d{4}[ ]{0,1}",
         labelText: 'Click me'
