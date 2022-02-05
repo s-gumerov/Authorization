@@ -4,12 +4,11 @@ import { InputMaskComponent } from "./InputMaskComponent";
 
 export const InputsMaskContainer: React.FC<IInputArrayProps> = ({ inputs }) => {
     const inpputs = inputs.map((input, index) =>
-        <label key={index} htmlFor={input.id}>
+        <label key={index} htmlFor={input.id}>{input.labelText}
             < InputMaskComponent key={index} {...input} />
         </label>
 
     );
-
 
     return (
         <>
