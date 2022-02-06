@@ -13,7 +13,7 @@ export const SignUp: React.FC = () => {
     }
 
     return (
-        <div className="autorisation-container unselectable">
+        <div className="authorization-container unselectable">
             <h2>Регистрация</h2>
             <p>
                 Уже есть аккаунт?

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { IChangePassword, IPrompt } from "../../../../Interfaces";
+import { IChangePassword, IPrompt, IInputProps } from "../../../../Interfaces";
 import { ShowPassword } from "./RegistrationFormComponents/ShowPassword";
 import { FormPrompt } from "./RegistrationFormComponents/FormPrompt";
+import { InputMaskComponent } from "../../../../Components/InputMaskComponent/InputMaskComponent";
 
 export const RegistrationForm: React.FC = () => {
     const [userNameCompleted, setUserNameCompleted] = useState<boolean>(false);
@@ -16,6 +17,18 @@ export const RegistrationForm: React.FC = () => {
     });
 
     const toggleInputTypeRef = useRef<HTMLInputElement>(null);
+
+    const tel: IInputProps = {
+        id: "userPhone",
+        type: "tel",
+        name: "userPhone",
+        className: 'authorization-form_input-border-none',
+        mask: "+7 (___) ___ ____",
+        title: `Не может содержать цифры и символы кроме пробела и дефиса`,
+        pattern: "\+7 \s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[ ]{0,1}\d{4}[ ]{0,1}",
+        labelText: 'Номер телефона'
+    }
+
 
     const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -45,7 +58,7 @@ export const RegistrationForm: React.FC = () => {
             } else if (inputId === 'userPhone') {
                 return {
                     message: 'Не может содержать цифры и символы кроме пробела и дефиса',
-                    checkedText: inputValue.match(/[0-9()-+]/g)
+                    checkedText: inputValue.match(/[0-9()-+ ]/g)
                 }
             } else if (inputId === 'userPassword') {
                 return {
@@ -106,12 +119,13 @@ export const RegistrationForm: React.FC = () => {
     return (
         <form
             onSubmit={formHandler}
-            className="autorisation-form">
+            className="authorization-form">
             <div className="form-prompt">
                 {promptProps.id === "userName" && <FormPrompt {...promptProps} />}
             </div>
             <label htmlFor="userName">Имя</label>
             <input type="text" name="userName" id="userName"
+                className="authorization-form_input-border-none"
                 placeholder="Введите ваше имя"
                 onChange={inputHandler}
                 onClick={() => setPromptProps({
@@ -125,7 +139,8 @@ export const RegistrationForm: React.FC = () => {
             </div>
             <label htmlFor="userEmail">Email</label>
             <input type="email" name="userEmail" id="userEmail"
-                placeholder="Введите ваш email"
+                className="authorization-form_input-border-none"
+                placeholder="email@email.com"
                 onChange={inputHandler}
                 onClick={() => setPromptProps({
                     id: 'userEmail',
@@ -136,10 +151,8 @@ export const RegistrationForm: React.FC = () => {
             <div className="form-prompt">
                 {promptProps.id === "userPhone" && <FormPrompt {...promptProps} />}
             </div>
-            <label htmlFor="userPhone">Номер телефона</label>
-            <input type="tel" id="userPhone" name="userPhone"
-                required={true} minLength={11} maxLength={16}
-                placeholder="Введите ваш номер телефона"
+
+            <div className="authorization-form__tel-wrapper"
                 onChange={inputHandler}
                 onClick={() =>
                     setPromptProps({
@@ -148,12 +161,16 @@ export const RegistrationForm: React.FC = () => {
                         error: false
                     })
                 }
-            />
+            >
+                <label htmlFor="userPhone">Номер телефона</label>
+                < InputMaskComponent  {...tel} />
+            </div>
             <div className="form-prompt">
                 {promptProps.id === "userPassword" && <FormPrompt {...promptProps} />}
             </div>
             <label htmlFor="userPassword">Пароль</label>
             <input type="password" name="userPassword" id="userPassword"
+                className="authorization-form_input-border-none"
                 placeholder="Придумайте ваш пароль"
                 ref={toggleInputTypeRef}
                 onChange={inputHandler}
@@ -166,7 +183,7 @@ export const RegistrationForm: React.FC = () => {
             <ShowPassword {...changePasswordHandler} />
             <button type="submit"
                 disabled={buttonDisabled ? true : false}
-                className={`autorisation-form__btn ${!buttonDisabled && 'autorisation-form_active-btn'}`}>
+                className={`authorization-form__btn ${!buttonDisabled && 'authorization-form_active-btn'}`}>
                 Зарегистрироваться
             </button>
         </form>

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { IInputProps, IHTMLInputElement } from "../../Interfaces";
 
 export const InputMaskComponent: React.FC<IInputProps> = ({ id, type, name, className, mask, title, pattern }) => {
-    const [cursorPosition, setCursorPosition] = useState<number>(3);
+    const [cursorPosition, setCursorPosition] = useState<number>(4);
 
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.currentTarget.value.length <= 3 ? setCursorPosition(3) : setCursorPosition(e.currentTarget.value.length + 1);
+        e.currentTarget.value.length <= 3 ? setCursorPosition(4) : setCursorPosition(e.currentTarget.value.length + 1);
         const matrix = mask;
         let i = 0;
         let def = matrix.replace(/\D/g, "");
@@ -17,7 +17,7 @@ export const InputMaskComponent: React.FC<IInputProps> = ({ id, type, name, clas
     };
 
     const blurHandler = (element: HTMLInputElement) => {
-        if (element.value.length <= 3) element.value = mask;
+        if (element.value.length <= 4) element.value = mask;
     };
 
     return (
