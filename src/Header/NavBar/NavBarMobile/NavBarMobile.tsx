@@ -24,13 +24,19 @@ export const NavBarMobile: React.FC<IArrayLinkProps> = ({ navProps }) => {
         <div className="nav-container unselectable"
             onTouchStart={toggleClassName}>
             < div className={menuClassName}  >
-                <div className="bar1"></div>
-                <div className="bar2"></div>
-                <div className="bar3"></div>
+                <div className="menu__top-line"></div>
+                <div className="menu__middle-line"></div>
+                <div className="menu__bottom-line"></div>
             </div >
             <div className={drawerClassName === 'drawer-on' ? 'nav-container_lock' : ''}
                 onClick={() => setDrawerClassName('drawer-off')}>
                 <div className={drawerClassName}>
+                    <div className="user-data">
+                        <div className="user-data__avatar">
+
+                        </div>
+
+                    </div>
                     {pages}
                 </div>
             </div>

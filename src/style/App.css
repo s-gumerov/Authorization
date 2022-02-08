@@ -18,10 +18,11 @@
   "main"
   "foot";
   grid-template-columns: 100%;
-  grid-template-rows:  0.8fr 10fr 1fr;
+  grid-template-rows:  1fr 8fr 1fr;
 }
 
 header {
+  max-height:55px;
   grid-area: head;
   background-color: rgb(49, 49, 49);
   display: flex;
@@ -44,38 +45,3 @@ footer {
   color: white;
 }
 
-
-/* @media screen and (max-width: 767px) {
-  .container {
-    font-family: "Roboto", Arial, Helvetica, sans-serif; 
-    display: grid;
-    width: inherit;
-    height: 100vh;
-    grid-template-areas: 
-    "main"
-    "foot";
-    grid-template-columns: 100%;
-    grid-template-rows:  10fr 1fr;
-  }
-
-  header{
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-
-  }
-   
-  main {
-    grid-area: main;
-    padding: 30px;
-  }
-  
-  footer{
-    background-color: dimgrey;
-    grid-area: foot;
-    text-align: center;
-    color: white;
-  }
-} */
