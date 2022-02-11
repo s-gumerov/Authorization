@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Authorization/static/css/main.da951200.chunk.css",
-    "main.js": "/Authorization/static/js/main.a1606c7e.chunk.js",
-    "main.js.map": "/Authorization/static/js/main.a1606c7e.chunk.js.map",
+    "main.css": "/Authorization/static/css/main.9c3d77ea.chunk.css",
+    "main.js": "/Authorization/static/js/main.8d6cd5d5.chunk.js",
+    "main.js.map": "/Authorization/static/js/main.8d6cd5d5.chunk.js.map",
     "runtime-main.js": "/Authorization/static/js/runtime-main.d8631ef5.js",
     "runtime-main.js.map": "/Authorization/static/js/runtime-main.d8631ef5.js.map",
     "static/js/2.dc130e3e.chunk.js": "/Authorization/static/js/2.dc130e3e.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.44f9063d.chunk.js": "/Authorization/static/js/3.44f9063d.chunk.js",
     "static/js/3.44f9063d.chunk.js.map": "/Authorization/static/js/3.44f9063d.chunk.js.map",
     "index.html": "/Authorization/index.html",
-    "static/css/main.da951200.chunk.css.map": "/Authorization/static/css/main.da951200.chunk.css.map",
+    "static/css/main.9c3d77ea.chunk.css.map": "/Authorization/static/css/main.9c3d77ea.chunk.css.map",
     "static/js/2.dc130e3e.chunk.js.LICENSE.txt": "/Authorization/static/js/2.dc130e3e.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Authorization/static/media/Roboto-Regular.a8d6ac03.ttf",
     "static/media/style.css": "/Authorization/static/media/check_box_outline_blank_black_24dp.e1bfe6c8.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.d8631ef5.js",
     "static/js/2.dc130e3e.chunk.js",
-    "static/css/main.da951200.chunk.css",
-    "static/js/main.a1606c7e.chunk.js"
+    "static/css/main.9c3d77ea.chunk.css",
+    "static/js/main.8d6cd5d5.chunk.js"
   ]
 }
